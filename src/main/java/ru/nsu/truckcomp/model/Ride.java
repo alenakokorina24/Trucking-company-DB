@@ -1,0 +1,56 @@
+package ru.nsu.truckcomp.model;
+
+import javax.persistence.*;
+import java.sql.Date;
+
+@Entity
+@Table(name = "RIDES")
+public class Ride {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int rideId;
+
+    @ManyToOne
+    @JoinColumn(name = "routeId")
+    private Route route;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Transport transport;
+
+    private Date date;
+
+    public Ride(Route route, Transport transport, Date date) {
+        this.route = route;
+        this.transport = transport;
+        this.date = date;
+    }
+
+    public int getRideId() {
+        return rideId;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public Transport getTransport() {
+        return transport;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
+    }
+
+    public void setTransport(Transport transport) {
+        this.transport = transport;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+}

@@ -1,0 +1,48 @@
+package ru.nsu.truckcomp.model;
+
+import javax.persistence.*;
+import java.sql.Date;
+
+@Entity
+@Table(name = "TRUCK")
+public class Truck extends Transport {
+    @Column(name = "carrying_capacity")
+    private int carryingCapacity;
+
+    @Column(name = "weight")
+    private int weight;
+
+    @Column(name = "carcass_type")
+    private String carcassType;
+
+    public Truck(Garage garage, String brand, Date acquirementDate, int carryingCapacity, int weight, String carcassType) {
+        super(garage, brand, acquirementDate);
+        this.carryingCapacity = carryingCapacity;
+        this.weight = weight;
+        this.carcassType = carcassType;
+    }
+
+    public int getCarryingCapacity() {
+        return carryingCapacity;
+    }
+
+    public void setCarryingCapacity(int carryingCapacity) {
+        this.carryingCapacity = carryingCapacity;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getCarcassType() {
+        return carcassType;
+    }
+
+    public void setCarcassType(String carcassType) {
+        this.carcassType = carcassType;
+    }
+}
