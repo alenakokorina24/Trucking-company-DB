@@ -4,8 +4,34 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "DRIVERS")
-public class Driver {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int areaId;
+public class Driver extends Employee {
+    @Column @ManyToOne
+    @JoinColumn(name = "id")
+    private Transport transport;
+
+    @Column @ManyToOne
+    @JoinColumn(name = "brigadeId")
+    private Brigade brigade;
+
+    public Driver(String name, String position, Transport transport, Brigade brigade) {
+        super(name, position);
+        this.transport = transport;
+        this.brigade = brigade;
+    }
+
+    public Transport getTransport() {
+        return transport;
+    }
+
+    public void setTransport(Transport transport) {
+        this.transport = transport;
+    }
+
+    public Brigade getBrigade() {
+        return brigade;
+    }
+
+    public void setBrigade(Brigade brigade) {
+        this.brigade = brigade;
+    }
 }

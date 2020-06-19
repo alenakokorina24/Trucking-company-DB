@@ -1,0 +1,24 @@
+package ru.nsu.truckcomp.model;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "SERVICE_STAFF")
+public class ServiceStaff extends Employee {
+    @Column @ManyToOne
+    @JoinColumn(name = "brigadeId")
+    private Brigade brigade;
+
+    public ServiceStaff(String name, String position, Brigade brigade) {
+        super(name, position);
+        this.brigade = brigade;
+    }
+
+    public Brigade getBrigade() {
+        return brigade;
+    }
+
+    public void setBrigade(Brigade brigade) {
+        this.brigade = brigade;
+    }
+}
