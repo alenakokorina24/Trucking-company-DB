@@ -6,7 +6,8 @@ import java.sql.Date;
 @Entity
 @Table(name = "DECOMMISSIONED_TRANSPORT")
 public class DecommissionedTransport {
-    @Id @OneToOne
+    @Id
+    @OneToOne
     @JoinColumn(name = "id")
     private int id;
 

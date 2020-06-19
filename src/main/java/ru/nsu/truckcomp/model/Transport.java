@@ -17,7 +17,9 @@ public abstract class Transport {
     private Garage garage;
 
     private String brand;
+
     private String state;
+
     private Date acquirementDate;
 
     public Transport(Garage garage, String brand, Date acquirementDate) {

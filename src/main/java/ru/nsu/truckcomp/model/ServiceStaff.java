@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "SERVICE_STAFF")
 public class ServiceStaff extends Employee {
-    @Column @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "brigadeId")
     private Brigade brigade;
 

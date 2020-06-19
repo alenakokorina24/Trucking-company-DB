@@ -5,11 +5,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "DRIVERS")
 public class Driver extends Employee {
-    @Column @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "id")
     private Transport transport;
 
-    @Column @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "brigadeId")
     private Brigade brigade;
 
