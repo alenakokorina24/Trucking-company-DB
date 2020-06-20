@@ -17,6 +17,10 @@ public class Garage {
         return garageId;
     }
 
+    public void setGarageId(int garageId) {
+        this.garageId = garageId;
+    }
+
     public Area getArea() {
         return area;
     }

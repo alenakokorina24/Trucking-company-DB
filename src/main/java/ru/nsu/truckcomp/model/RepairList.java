@@ -36,6 +36,10 @@ public class RepairList {
         return repId;
     }
 
+    public void setRepId(int repId) {
+        this.repId = repId;
+    }
+
     public Brigade getBrigade() {
         return brigade;
     }

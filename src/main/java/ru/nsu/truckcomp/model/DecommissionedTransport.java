@@ -22,6 +22,10 @@ public class DecommissionedTransport {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Date getDecommissionDate() {
         return decommissionDate;
     }

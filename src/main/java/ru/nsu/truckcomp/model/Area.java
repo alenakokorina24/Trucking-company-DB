@@ -13,6 +13,10 @@ public class Area {
     @JoinColumn(name = "empId")
     private Employee chief;
 
+    public Area() {
+
+    }
+
     public Area(Employee chief) {
         this.chief = chief;
     }
@@ -20,6 +24,8 @@ public class Area {
     public int getAreaId() {
         return areaId;
     }
+
+    public void setAreaId(int id) { areaId = id; }
 
     public Employee getChief() {
         return chief;

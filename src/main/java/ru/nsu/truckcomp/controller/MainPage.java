@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainPage {
+
     @GetMapping("/")
     public String authorization() {
         return "login.mustache.html";

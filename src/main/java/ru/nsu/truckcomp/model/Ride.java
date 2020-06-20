@@ -30,6 +30,10 @@ public class Ride {
         return rideId;
     }
 
+    public void setRideId(int rideId) {
+        this.rideId = rideId;
+    }
+
     public Route getRoute() {
         return route;
     }

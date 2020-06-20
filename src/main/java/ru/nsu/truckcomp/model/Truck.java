@@ -6,13 +6,10 @@ import java.sql.Date;
 @Entity
 @Table(name = "TRUCK")
 public class Truck extends Transport {
-    @Column(name = "carrying_capacity")
     private int carryingCapacity;
 
-    @Column(name = "weight")
     private int weight;
 
-    @Column(name = "carcass_type")
     private String carcassType;
 
     public Truck(Garage garage, String brand, Date acquirementDate, int carryingCapacity, int weight, String carcassType) {

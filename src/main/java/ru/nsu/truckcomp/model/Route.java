@@ -15,6 +15,10 @@ public class Route {
         return routeId;
     }
 
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
+    }
+
     public int getLength() {
         return length;
     }

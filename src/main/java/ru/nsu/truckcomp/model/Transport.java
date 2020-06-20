@@ -32,6 +32,10 @@ public abstract class Transport {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Garage getGarage() {
         return garage;
     }
