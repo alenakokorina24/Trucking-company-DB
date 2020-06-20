@@ -12,11 +12,11 @@ public class Brigade {
     private int brigadeId;
 
     @ManyToOne
-    @JoinColumn(name = "areaId")
+    @JoinColumn(name = "area_id")
     private Area area;
 
     @OneToOne
-    @JoinColumn(name = "empId")
+    @JoinColumn(name = "emp_id")
     private Employee brigadier;
 
     @OneToMany(mappedBy = "brigade", targetEntity = RepairList.class, cascade = CascadeType.ALL)

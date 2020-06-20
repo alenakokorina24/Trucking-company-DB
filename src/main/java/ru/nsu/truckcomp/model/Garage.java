@@ -10,7 +10,7 @@ public class Garage {
     private int garageId;
 
     @ManyToOne
-    @JoinColumn(name = "areaId")
+    @JoinColumn(name = "area_id")
     private Area area;
 
     public Garage() {

@@ -14,8 +14,8 @@ public class Truck extends Transport {
 
     }
 
-    public Truck(Garage garage, String brand, Date acquirementDate, int carryingCapacity, int weight, String carcassType) {
-        super(garage, brand, acquirementDate);
+    public Truck(Garage garage, String brand, Date acquirementDate, Date decommissionDate, int carryingCapacity, int weight, String carcassType) {
+        super(garage, brand, acquirementDate, decommissionDate);
         this.carryingCapacity = carryingCapacity;
         this.weight = weight;
         this.carcassType = carcassType;

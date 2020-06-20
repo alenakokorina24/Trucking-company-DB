@@ -13,8 +13,8 @@ public class PassengerTransport extends Transport {
 
     }
 
-    public PassengerTransport(Garage garage, String brand, Date acquirementDate, String type, int capacity) {
-        super(garage, brand, acquirementDate);
+    public PassengerTransport(Garage garage, String brand, Date acquirementDate, Date decommissionDate, String type, int capacity) {
+        super(garage, brand, acquirementDate, decommissionDate);
         this.type = type;
         this.capacity = capacity;
     }

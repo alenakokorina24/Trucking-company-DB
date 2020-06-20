@@ -10,7 +10,7 @@ public class Driver extends Employee {
     private Transport transport;
 
     @ManyToOne
-    @JoinColumn(name = "brigadeId")
+    @JoinColumn(name = "brigade_id")
     private Brigade brigade;
 
     public Driver() {

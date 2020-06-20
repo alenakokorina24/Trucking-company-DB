@@ -14,7 +14,7 @@ public abstract class Transport {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "garageId")
+    @JoinColumn(name = "garage_id")
     private Garage garage;
 
     @OneToMany(mappedBy = "transport", targetEntity = Driver.class)
@@ -23,15 +23,17 @@ public abstract class Transport {
     private String brand;
     private String state;
     private Date acquirementDate;
+    private Date decommissionDate;
 
     public Transport() {
 
     }
 
-    public Transport(Garage garage, String brand, Date acquirementDate) {
+    public Transport(Garage garage, String brand, Date acquirementDate, Date decommissionDate) {
         this.garage = garage;
         this.brand = brand;
         this.acquirementDate = acquirementDate;
+        this.decommissionDate = decommissionDate;
     }
 
     public int getId() {

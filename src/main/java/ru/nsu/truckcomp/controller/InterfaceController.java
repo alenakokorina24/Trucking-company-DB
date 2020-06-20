@@ -8,17 +8,17 @@ public class InterfaceController {
 
     @GetMapping("/")
     public String authorization() {
-        return "login.mustache.html";
+        return "login";
     }
 
     @GetMapping("/queries")
     public String queries() {
-        return "queries.mustache.html";
+        return "queries";
     }
 
     @GetMapping("/register")
     public String registration() {
-        return "register.mustache.html";
+        return "register";
     }
 
     @GetMapping("/recover")

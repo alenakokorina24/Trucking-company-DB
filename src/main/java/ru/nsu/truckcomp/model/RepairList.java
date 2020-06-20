@@ -11,7 +11,7 @@ public class RepairList {
     private int repId;
 
     @ManyToOne
-    @JoinColumn(name = "brigadeId")
+    @JoinColumn(name = "brigade_id")
     private Brigade brigade;
 
     @ManyToOne

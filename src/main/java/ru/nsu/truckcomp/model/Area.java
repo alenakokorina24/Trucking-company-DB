@@ -12,7 +12,7 @@ public class Area {
     private int areaId;
 
     @OneToOne
-    @JoinColumn(name = "empId")
+    @JoinColumn(name = "emp_id")
     private Employee chief;
 
     @OneToMany(mappedBy = "area", targetEntity = Garage.class, cascade = CascadeType.ALL)

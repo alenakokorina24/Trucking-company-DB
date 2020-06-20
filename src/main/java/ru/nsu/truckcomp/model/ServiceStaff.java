@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "SERVICE_STAFF")
 public class ServiceStaff extends Employee {
     @ManyToOne
-    @JoinColumn(name = "brigadeId")
+    @JoinColumn(name = "brigade_id")
     private Brigade brigade;
 
     public ServiceStaff() {
