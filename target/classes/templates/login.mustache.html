@@ -10,12 +10,13 @@
             text-align: center;
         }
         .authorization {
-            margin: 5%;
-            width: 20%;
-            height: 40%;
-            position: fixed;
+            margin-left: 40%;
+            margin-top: 5%;
             text-align: center;
-            background-color: #CECECE;
+            width: 20%;
+            height: 35%;
+            position: fixed;
+            background-color: #C4C4C4;
             border-radius: 20px;
         }
         .button {
@@ -25,7 +26,7 @@
             border-radius: 4px;
             width: 80%;
             height: 30px;
-            margin-bottom: 1%;
+            margin-bottom: 2%;
         }
         .button:hover {
             background-color: #7F7F7F;
@@ -34,31 +35,30 @@
             border-radius: 4px;
             width: 80%;
             height: 30px;
-            margin-bottom: 1%;
+            margin-bottom: 2%;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
-<div class = "header">
-    <h2 style = "color:white;font-size:400%;">
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
         Trucking company manager
     </h2>
 </div>
 <div>
     <div class="authorization">
+        <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Authorization</div>
         <div>
-            <input style="margin-top: 20%; margin-bottom: 2%; width: 75%; height: 20px; border: none" type="text" placeholder="login">
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="login">
         </div>
         <div>
-            <input style="margin-bottom: 2%; width: 75%; height: 20px; border: none" type="text" placeholder="password">
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="password">
         </div>
         <div>
-            <form>
-                <div><button class="button">Sign In</button></div>
-                <div><button class="button">Forgot password?</button></div>
-                <div><button class="button">Register</button></div>
-            </form>
+            <form method="get" action="/main"><div><button class="button">Sign In</button></div></form>
+            <form method="get" action="/recover"><div><button class="button">Forgot password?</button></div></form>
+            <form method="get" action="/register"><div><button class="button">Register</button></div></form>
         </div>
     </div>
 </div>

@@ -35,7 +35,7 @@
             border-radius: 4px;
             width: 80%;
             height: 30px;
-            margin-bottom: 1%;
+            margin-bottom: 2%;
             cursor: pointer;
         }
     </style>
@@ -56,11 +56,9 @@
             <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="password">
         </div>
         <div>
-            <form>
-                <div><button class="button">Sign In</button></div>
-                <div><button class="button">Forgot password?</button></div>
-                <div><button class="button">Register</button></div>
-            </form>
+            <form method="get" action="/main"><div><button class="button">Sign In</button></div></form>
+            <form method="get" action="/recover"><div><button class="button">Forgot password?</button></div></form>
+            <form method="get" action="/register"><div><button class="button">Register</button></div></form>
         </div>
     </div>
 </div>
