@@ -1,8 +1,9 @@
 package ru.nsu.truckcomp.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.PassengerTransport;
 
-public interface PassTransportRepository extends CrudRepository<PassengerTransport, Integer> {
+@Transactional
+public interface PassTransportRepository extends TransportRepository<PassengerTransport> {
 
 }

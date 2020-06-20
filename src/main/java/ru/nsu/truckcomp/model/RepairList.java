@@ -23,6 +23,10 @@ public class RepairList {
     private Date received;
     private Date returned;
 
+    public RepairList() {
+
+    }
+
     public RepairList(Brigade brigade, Transport transport, String sparePart, int cost, Date received, Date returned) {
         this.brigade = brigade;
         this.transport = transport;

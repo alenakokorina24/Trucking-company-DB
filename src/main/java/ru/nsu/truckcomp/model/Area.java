@@ -1,6 +1,8 @@
 package ru.nsu.truckcomp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "AREAS")
@@ -12,6 +14,12 @@ public class Area {
     @OneToOne
     @JoinColumn(name = "empId")
     private Employee chief;
+
+    @OneToMany(mappedBy = "area", targetEntity = Garage.class, cascade = CascadeType.ALL)
+    private Set<Garage> garages = new HashSet<>();
+
+    @OneToMany(mappedBy = "area", targetEntity = Brigade.class, cascade = CascadeType.ALL)
+    private Set<Brigade> brigades = new HashSet<>();
 
     public Area() {
 

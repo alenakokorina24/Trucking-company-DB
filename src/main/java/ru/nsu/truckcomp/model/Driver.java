@@ -13,6 +13,10 @@ public class Driver extends Employee {
     @JoinColumn(name = "brigadeId")
     private Brigade brigade;
 
+    public Driver() {
+
+    }
+
     public Driver(String name, String position, Transport transport, Brigade brigade) {
         super(name, position);
         this.transport = transport;

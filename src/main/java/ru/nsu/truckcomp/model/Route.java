@@ -11,6 +11,14 @@ public class Route {
 
     private int length;
 
+    public Route() {
+
+    }
+
+    public Route(int length) {
+        this.length = length;
+    }
+
     public int getRouteId() {
         return routeId;
     }

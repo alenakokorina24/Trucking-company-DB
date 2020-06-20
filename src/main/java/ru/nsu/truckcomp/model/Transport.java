@@ -2,6 +2,8 @@ package ru.nsu.truckcomp.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "TRANSPORT")
@@ -9,18 +11,22 @@ import java.sql.Date;
 public abstract class Transport {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @OneToOne(orphanRemoval = true, cascade = {CascadeType.REMOVE})
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "garageId")
     private Garage garage;
 
+    @OneToMany(mappedBy = "transport", targetEntity = Driver.class)
+    private Set<Driver> drivers = new HashSet<>();
+
     private String brand;
-
     private String state;
-
     private Date acquirementDate;
+
+    public Transport() {
+
+    }
 
     public Transport(Garage garage, String brand, Date acquirementDate) {
         this.garage = garage;

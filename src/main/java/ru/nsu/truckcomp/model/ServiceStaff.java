@@ -9,6 +9,10 @@ public class ServiceStaff extends Employee {
     @JoinColumn(name = "brigadeId")
     private Brigade brigade;
 
+    public ServiceStaff() {
+
+    }
+
     public ServiceStaff(String name, String position, Brigade brigade) {
         super(name, position);
         this.brigade = brigade;

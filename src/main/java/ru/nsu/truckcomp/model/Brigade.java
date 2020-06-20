@@ -1,6 +1,8 @@
 package ru.nsu.truckcomp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "BRIGADES")
@@ -16,6 +18,18 @@ public class Brigade {
     @OneToOne
     @JoinColumn(name = "empId")
     private Employee brigadier;
+
+    @OneToMany(mappedBy = "brigade", targetEntity = RepairList.class, cascade = CascadeType.ALL)
+    private Set<RepairList> repairLists = new HashSet<>();
+
+    public Brigade() {
+
+    }
+
+    public Brigade(Area area, Employee brigadier) {
+        this.area = area;
+        this.brigadier = brigadier;
+    }
 
     public int getBrigadeId() {
         return brigadeId;

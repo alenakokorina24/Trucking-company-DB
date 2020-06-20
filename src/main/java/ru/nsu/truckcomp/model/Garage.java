@@ -13,6 +13,14 @@ public class Garage {
     @JoinColumn(name = "areaId")
     private Area area;
 
+    public Garage() {
+
+    }
+
+    public Garage(Area area) {
+        this.area = area;
+    }
+
     public int getGarageId() {
         return garageId;
     }

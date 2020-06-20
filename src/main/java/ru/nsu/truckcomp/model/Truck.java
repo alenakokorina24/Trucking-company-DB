@@ -7,10 +7,12 @@ import java.sql.Date;
 @Table(name = "TRUCK")
 public class Truck extends Transport {
     private int carryingCapacity;
-
     private int weight;
-
     private String carcassType;
+
+    public Truck() {
+
+    }
 
     public Truck(Garage garage, String brand, Date acquirementDate, int carryingCapacity, int weight, String carcassType) {
         super(garage, brand, acquirementDate);

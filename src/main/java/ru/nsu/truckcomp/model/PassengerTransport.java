@@ -7,8 +7,11 @@ import java.sql.Date;
 @Table(name = "PASSENGER_TRANSPORT")
 public class PassengerTransport extends Transport {
     private String type;
-
     private int capacity;
+
+    public PassengerTransport() {
+
+    }
 
     public PassengerTransport(Garage garage, String brand, Date acquirementDate, String type, int capacity) {
         super(garage, brand, acquirementDate);

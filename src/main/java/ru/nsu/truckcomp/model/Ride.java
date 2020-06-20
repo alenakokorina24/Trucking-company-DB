@@ -20,6 +20,10 @@ public class Ride {
 
     private Date date;
 
+    public Ride() {
+
+    }
+
     public Ride(Route route, Transport transport, Date date) {
         this.route = route;
         this.transport = transport;
