@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class InterfaceController {
-
     @GetMapping("/")
     public String authorization() {
         return "login";
@@ -13,7 +12,7 @@ public class InterfaceController {
 
     @GetMapping("/queries")
     public String queries() {
-        return "queries";
+        return "queries.mustache.html";
     }
 
     @GetMapping("/register")
@@ -23,6 +22,6 @@ public class InterfaceController {
 
     @GetMapping("/recover")
     public String pwdRecovery(){
-        return "recover";
+        return "recovery";
     }
 }

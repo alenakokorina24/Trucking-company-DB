@@ -30,12 +30,6 @@
         }
         .button:hover {
             background-color: #7F7F7F;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            width: 80%;
-            height: 30px;
-            margin-bottom: 2%;
             cursor: pointer;
         }
     </style>
@@ -59,10 +53,8 @@
             <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="repeat password">
         </div>
         <div>
-            <form>
-                <div><button class="button">Submit</button></div>
-                <div><button class="button">Cancel</button></div>
-            </form>
+            <form method="get" action="/"><div><button class="button">Submit</button></div></form>
+            <form method="get" action="/"><div><button class="button">Cancel</button></div></form>
         </div>
     </div>
 </div>
