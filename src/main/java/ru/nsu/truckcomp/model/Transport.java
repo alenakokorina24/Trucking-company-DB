@@ -7,7 +7,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "TRANSPORT")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "transport_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Transport {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

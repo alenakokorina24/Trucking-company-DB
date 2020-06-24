@@ -12,7 +12,7 @@ public class InterfaceController {
 
     @GetMapping("/queries")
     public String queries() {
-        return "queries.mustache.html";
+        return "queries";
     }
 
     @GetMapping("/register")

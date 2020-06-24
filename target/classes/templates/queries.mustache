@@ -2,40 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Trucking company manager</title>
+    <title>Trucking company database manager</title>
     <style type="text/css">
         .header {
             background-color: #E5C821;
             padding: 15px;
             text-align: center;
         }
-        .authorization {
-            margin-left: 40%;
-            margin-top: 5%;
-            text-align: center;
-            width: 20%;
-            height: 35%;
-            position: fixed;
-            background-color: #C4C4C4;
-            border-radius: 20px;
-        }
         .button {
             background-color: white;
-            color: white;
+            color: #7F7F7F;
             border: none;
-            border-radius: 4px;
-            width: 80%;
+            font-size: 16px;
+            width: 45%;
             height: 30px;
             margin-bottom: 2%;
+            margin-top: 3%;
+            text-align: left;
         }
         .button:hover {
-            background-color: #7F7F7F;
+            cursor: pointer;
+        }
+        .vertical_line {
+            width: 1px;
+            height: 1080px;
+            background-color: #C4C4C4;
+            float: left;
+            margin-top: 2%;
+        }
+        .horizontal_line {
+            width: 96%;
+            height: 1px;
+            background-color: #C4C4C4;
+        }
+        .query_submit {
+            background-color: #A0A0A0;
             color: white;
             border: none;
             border-radius: 4px;
-            width: 80%;
+            width: 80px;
             height: 30px;
-            margin-bottom: 2%;
+            float: right;
+            margin-top: 20px;
+            margin-right: 15px;
+        }
+        .query_submit:hover {
+            background-color: #7F7F7F;
+            cursor: pointer;
+        }
+        .query_submit1 {
+            background-color: #A0A0A0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            float: right;
+            width: 80px;
+            height: 30px;
+            margin-right: 15px;
+        }
+        .query_submit1:hover {
+            background-color: #7F7F7F;
+            cursor: pointer;
+        }
+        .text_query_submit {
+            background-color: #A0A0A0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 80%;
+            margin-top: 1%;
+            width: 10%;
+            height: 30px;
+        }
+        .text_query_submit:hover {
+            background-color: #7F7F7F;
             cursor: pointer;
         }
     </style>
@@ -47,9 +87,172 @@
     </h2>
 </div>
 <div>
-    <div>
-        <form method="get" action="/"><div><button class="button">Text</button></div></form>
+    <div style="float: left; margin-left: 2%; width: 50%;">
+        <form method="get" action="/autopark">
+            <div>
+                <button class="button text-left">Данные об автопарке предприятия</button>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Перечень и общее число водителей</button>
+                <select style="height: 24px">
+                    <option selected disabled>Участок</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Автомобиль</option>
+                </select>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Распределение водителей по автомобилям</button>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Распределение пассажирского транспорта по маршрутам</button>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Пробег</button>
+                <select style="height: 24px">
+                    <option selected disabled>Категория</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Автомобиль</option>
+                </select>
+                <input type="date" min="2015-01-01" max="2020-12-31">
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Ремонтный лист</button>
+                <select style="height: 24px">
+                    <option selected disabled>Категория</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Марка</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Автомобиль</option>
+                </select>
+                <div style="margin-left: 45%; margin-bottom: 2%;">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <button class="query_submit1">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Иерархия персонала</button>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Данные о гаражном хозяйстве</button>
+                <select style="height: 24px">
+                    <option selected disabled>Категория</option>
+                </select>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Распределение транспорта на предприятии</button>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Грузоперевозки за период</button>
+                <input type="date" min="2015-01-01" max="2020-12-31">
+                <input type="date" min="2015-01-01" max="2020-12-31">
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Использованные запчасти за период</button>
+                <select style="height: 24px">
+                    <option selected disabled>Категория</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Марка</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Автомобиль</option>
+                </select>
+                <div style="margin-left: 45%; margin-bottom: 2%;">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <button class="query_submit1">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Полученный и списанный транспорт за период</button>
+                <input type="date" min="2015-01-01" max="2020-12-31">
+                <input type="date" min="2015-01-01" max="2020-12-31">
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Состав подчинённых</button>
+                <select style="height: 24px" required>
+                    <option selected disabled>Сотрудник</option>
+                </select>
+                <button class="query_submit">Submit</button>
+            </div>
+        </form>
+        <div class="horizontal_line"></div>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Работы, выполненные сотрудником за период</button>
+                <select style="height: 24px" required>
+                    <option selected disabled>Сотрудник</option>
+                </select>
+                <select style="height: 24px">
+                    <option selected disabled>Автомобиль</option>
+                </select>
+                <div style="margin-left: 45%; margin-bottom: 2%;">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <button class="query_submit1">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="vertical_line"></div>
+    <div style="float: left; margin-left: 2%; width: 45%;">
+        <div><h2 style="font-family: Arial, Helvetica, sans-serif; color: #7F7F7F;">... или введите запрос вручную</h2></div>
+        <div><textarea style="width: 90%; height: 400px;"></textarea></div>
+        <div>
+            <button class="text_query_submit">Submit</button>
         </div>
+
     </div>
 </div>
 </body>

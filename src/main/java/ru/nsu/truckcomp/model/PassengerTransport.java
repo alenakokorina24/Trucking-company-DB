@@ -5,6 +5,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "PASSENGER_TRANSPORT")
+@DiscriminatorValue(value = "passenger")
 public class PassengerTransport extends Transport {
     private String type;
     private int capacity;
