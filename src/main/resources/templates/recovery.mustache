@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucking company database manager</title>
+    <style type="text/css">
+        .header {
+            background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+        }
+        .pwdRecovery {
+            margin-left: 40%;
+            margin-top: 5%;
+            text-align: center;
+            width: 20%;
+            height: 35%;
+            position: fixed;
+            background-color: #C4C4C4;
+            border-radius: 20px;
+        }
+        .button {
+            background-color: #A0A0A0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 80%;
+            height: 30px;
+            margin-bottom: 2%;
+        }
+        .button:hover {
+            background-color: #7F7F7F;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div>
+    <div class="pwdRecovery">
+        <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Reset password</div>
+        <div>
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="email">
+        </div>
+        <div>
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="old password">
+        </div>
+        <div>
+            <form method="get" action="/"><div><button class="button">Reset password</button></div></form>
+            <form method="get" action="/"><div><button class="button">Cancel</button></div></form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

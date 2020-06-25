@@ -20,7 +20,7 @@ public class InterfaceController {
         return "register";
     }
 
-    @GetMapping("/recover")
+    @GetMapping("/recovery")
     public String pwdRecovery(){
         return "recovery";
     }
