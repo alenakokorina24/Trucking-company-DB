@@ -4,6 +4,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.PassengerTransport;
 
 @Transactional
-public interface PassTransportRepository extends TransportRepository<PassengerTransport> {
+public interface PassTransportRepository extends TransportBaseRepository<PassengerTransport> {
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Trucking company database manager</title>
@@ -37,20 +37,20 @@
 <body>
 <div class="header">
     <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
-        Trucking company manager
+        Trucking company database manager
     </h2>
 </div>
 <div>
     <div class="registration">
         <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Registration</div>
         <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="email">
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="email" required="required" type="text" placeholder="email">
         </div>
         <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="password">
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="password" required="required" type="password" placeholder="password">
         </div>
         <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" type="text" placeholder="repeat password">
+            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="matchPassword" required="required" type="password" placeholder="repeat password">
         </div>
         <div>
             <form method="get" action="/submit"><div><button class="button">Submit</button></div></form>
@@ -58,5 +58,15 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function register(event){
+        if($("#password").val() !== $("#matchPassword").val()){
+            return;
+        }
+        let formData= $('form').serialize();
+    }
+
+</script>
 </body>
 </html>

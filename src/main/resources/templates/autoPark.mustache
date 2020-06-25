@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charseet=UTF-8" />
+<!--    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+    <style type="text/css">
+        .header {
+            background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div>
+    <table>
+        <caption>Автомобили</caption>
+        <tr>
+            <th>ID</th>
+            <th>Тип транспорта</th>
+            <th>Марка</th>
+            <th>Дата приобретения</th>
+            <th>Дата списания</th>
+            <th>Состояние</th>
+            <th>Вместимость</th>
+            <th>Тип</th>
+            <th>Тип кузова</th>
+            <th>Грузоподъёмность</th>
+            <th>Масса</th>
+            <th>Гараж</th>
+        </tr>
+                {{#transport}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{transport_type}}</td>
+                <td>{{brand}}</td>
+                <td>{{acquirement_date}}</td>
+                <td>{{decommission_date}}</td>
+                <td>{{state}}</td>
+                <td>{{capacity}}</td>
+                <td>{{type}}</td>
+                <td>{{carcass_type}}</td>
+                <td>{{carrying_capacity}}</td>
+                <td>{{weight}}</td>
+                <td>{{garage}}</td>
+            </tr>
+                {{/transport}}
+    </table>
+</div>
+</body>
+</html>

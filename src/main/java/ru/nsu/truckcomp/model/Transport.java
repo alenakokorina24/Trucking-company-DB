@@ -11,7 +11,7 @@ import java.util.Set;
 @DiscriminatorColumn(name = "transport_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Transport {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
@@ -25,6 +25,9 @@ public abstract class Transport {
     private String state;
     private Date acquirementDate;
     private Date decommissionDate;
+
+    @Column(name = "transport_type", updatable = false, insertable = false)
+    private String transportType;
 
     public Transport() {
 
@@ -75,5 +78,25 @@ public abstract class Transport {
 
     public void setAcquirementDate(Date acquirementDate) {
         this.acquirementDate = acquirementDate;
+    }
+
+    public Set<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(Set<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+    public Date getDecommissionDate() {
+        return decommissionDate;
+    }
+
+    public void setDecommissionDate(Date decommissionDate) {
+        this.decommissionDate = decommissionDate;
+    }
+
+    public String getTransportType() {
+        return transportType;
     }
 }
