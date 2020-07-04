@@ -7,9 +7,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "TRANSPORT")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "transport_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class Transport {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Transport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,9 +24,6 @@ public abstract class Transport {
     private String state;
     private Date acquirementDate;
     private Date decommissionDate;
-
-    @Column(name = "transport_type", updatable = false, insertable = false)
-    private String transportType;
 
     public Transport() {
 
@@ -94,9 +90,5 @@ public abstract class Transport {
 
     public void setDecommissionDate(Date decommissionDate) {
         this.decommissionDate = decommissionDate;
-    }
-
-    public String getTransportType() {
-        return transportType;
     }
 }

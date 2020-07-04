@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@DiscriminatorValue(value = "truck")
 public class Truck extends Transport {
     private int carryingCapacity;
     private int weight;
