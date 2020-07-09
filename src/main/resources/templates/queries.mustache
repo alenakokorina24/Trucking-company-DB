@@ -100,10 +100,15 @@
                 <button class="button">Перечень и общее число водителей</button>
                 <select name="area" style="height: 24px">
                     <option selected disabled>Участок</option>
-                    <option>1</option>
+                    {{#areas}}
+                        <option value={{areaId}}>{{areaId}}</option>
+                    {{/areas}}
                 </select>
                 <select name="transport" style="height: 24px">
                     <option selected disabled>Автомобиль</option>
+                    {{#transport}}
+                        <option value={{id}}>{{id}}</option>
+                    {{/transport}}
                 </select>
                 <button class="query_submit" type="submit">Submit</button>
             </div>
@@ -131,6 +136,9 @@
                 </select>
                 <select style="height: 24px">
                     <option selected disabled>Автомобиль</option>
+                    {{#transport}}
+                        <option value={{id}}>{{id}}</option>
+                    {{/transport}}
                 </select>
                 <input type="date" min="2015-01-01" max="2020-12-31">
                 <button class="query_submit">Submit</button>
@@ -148,6 +156,9 @@
                 </select>
                 <select style="height: 24px">
                     <option selected disabled>Автомобиль</option>
+                    {{#transport}}
+                        <option value={{id}}>{{id}}</option>
+                    {{/transport}}
                 </select>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
                     <input type="date" min="2015-01-01" max="2020-12-31">
@@ -201,6 +212,9 @@
                 </select>
                 <select style="height: 24px">
                     <option selected disabled>Автомобиль</option>
+                    {{#transport}}
+                        <option value={{id}}>{{id}}</option>
+                    {{/transport}}
                 </select>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
                     <input type="date" min="2015-01-01" max="2020-12-31">
@@ -224,6 +238,9 @@
                 <button class="button">Состав подчинённых</button>
                 <select style="height: 24px" required>
                     <option selected disabled>Сотрудник</option>
+                    {{#employees}}
+                        <option value={{name}}>{{name}}</option>
+                    {{/employees}}
                 </select>
                 <button class="query_submit">Submit</button>
             </div>
@@ -234,9 +251,15 @@
                 <button class="button">Работы, выполненные сотрудником за период</button>
                 <select style="height: 24px" required>
                     <option selected disabled>Сотрудник</option>
+                    {{#employees}}
+                        <option value={{name}}>{{name}}</option>
+                    {{/employees}}
                 </select>
                 <select style="height: 24px">
                     <option selected disabled>Автомобиль</option>
+                    {{#transport}}
+                        <option value={{id}}>{{id}}</option>
+                    {{/transport}}
                 </select>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
                     <input type="date" min="2015-01-01" max="2020-12-31">

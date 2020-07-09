@@ -3,7 +3,9 @@ package ru.nsu.truckcomp.controller.queries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.nsu.truckcomp.repository.AreaRepository;
 import ru.nsu.truckcomp.repository.DriverRepository;
 
 import java.util.Map;
@@ -13,10 +15,14 @@ public class DriversInfo {
     @Autowired
     private DriverRepository driverRepository;
 
+    @Autowired
+    private AreaRepository areaRepository;
+
     @GetMapping("/drivers")
     public String getDriversInfo(@RequestParam(required = false) Integer area,
                                  @RequestParam(required = false) Integer transport,
                                  Map<String, Object> model) {
+
         if (area != null && transport != null) {
             model.put("drivers", driverRepository.findByTransportIdAndBrigade_AreaAreaId(transport, area));
         } else if (area != null) {
