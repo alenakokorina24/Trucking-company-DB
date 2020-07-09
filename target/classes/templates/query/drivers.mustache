@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Transport company database manager</title>
     <meta http-equiv="Content-Type" content="text/html; charseet=UTF-8" />
     <style type="text/css">
         .header {
@@ -41,23 +41,23 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>БАЗОВАЯ ИНФОРМАЦИЯ ОБ АВТОПАРКЕ ПРЕДПРИЯТИЯ</b></caption>
+        <caption class="caption"><b>ПЕРЕЧЕНЬ ВОДИТЕЛЕЙ</b></caption>
         <tr>
             <th>ID</th>
-            <th>Марка</th>
-            <th>Дата приобретения</th>
-            <th>Дата списания</th>
-            <th>Состояние</th>
+            <th>ФИО</th>
+            <th>должность</th>
+            <th>транспорт</th>
+            <th>бригада</th>
         </tr>
-                {{#transport}}
+        {{#drivers}}
             <tr>
-                <td>{{id}}</td>
-                <td>{{brand}}</td>
-                <td>{{acquirementDate}}</td>
-                <td>{{decommissionDate}}</td>
-                <td>{{state}}</td>
+                <td>{{empId}}</td>
+                <td>{{name}}</td>
+                <td>{{position}}</td>
+                <td>{{transport.id}}</td>
+                <td>{{brigade.brigadeId}}</td>
             </tr>
-                {{/transport}}
+        {{/drivers}}
     </table>
 </div>
 </body>

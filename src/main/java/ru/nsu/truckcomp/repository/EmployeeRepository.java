@@ -1,9 +1,10 @@
 package ru.nsu.truckcomp.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.Employee;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
-
+@Transactional
+public interface EmployeeRepository extends EmployeeBaseRepository<Employee> {
+    Employee findByEmpId(int id);
 }
 

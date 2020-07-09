@@ -13,11 +13,8 @@ public class AutoParkInfo {
     private TransportRepository transportRepository;
 
     @GetMapping("/autoPark")
-    public String autoParkInfo(Map<String, Object> model){
+    public String getAutoParkInfo(Map<String, Object> model){
         model.put("transport", transportRepository.findAll());
-        model.forEach((k, v)-> {
-            System.out.println(v);
-        });
-        return "autoPark";
+        return "query/autoPark";
     }
 }

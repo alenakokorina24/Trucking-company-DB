@@ -83,7 +83,7 @@
 <body>
 <div class="header">
     <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
-        Trucking company manager
+        Trucking company database manager
     </h2>
 </div>
 <div>
@@ -91,20 +91,21 @@
         <form method="get" action="/autoPark">
             <div>
                 <button class="button text-left">Данные об автопарке предприятия</button>
-                <button class="query_submit">Submit</button>
+                <button class="query_submit" type="submit">Submit</button>
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/drivers">
             <div>
                 <button class="button">Перечень и общее число водителей</button>
-                <select style="height: 24px">
+                <select name="area" style="height: 24px">
                     <option selected disabled>Участок</option>
+                    <option>1</option>
                 </select>
-                <select style="height: 24px">
+                <select name="transport" style="height: 24px">
                     <option selected disabled>Автомобиль</option>
                 </select>
-                <button class="query_submit">Submit</button>
+                <button class="query_submit" type="submit">Submit</button>
             </div>
         </form>
         <div class="horizontal_line"></div>
