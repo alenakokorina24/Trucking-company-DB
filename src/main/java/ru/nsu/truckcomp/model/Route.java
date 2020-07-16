@@ -9,14 +9,14 @@ public class Route {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int routeId;
 
-    private int length;
+    private int routeLength;
 
     public Route() {
 
     }
 
     public Route(int length) {
-        this.length = length;
+        this.routeLength = length;
     }
 
     public int getRouteId() {
@@ -28,10 +28,10 @@ public class Route {
     }
 
     public int getLength() {
-        return length;
+        return routeLength;
     }
 
     public void setLength(int length) {
-        this.length = length;
+        this.routeLength = length;
     }
 }

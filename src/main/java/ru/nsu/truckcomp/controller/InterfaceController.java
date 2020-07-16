@@ -3,9 +3,7 @@ package ru.nsu.truckcomp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.nsu.truckcomp.repository.AreaRepository;
-import ru.nsu.truckcomp.repository.EmployeeRepository;
-import ru.nsu.truckcomp.repository.TransportRepository;
+import ru.nsu.truckcomp.repository.*;
 
 import java.util.Map;
 
