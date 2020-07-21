@@ -48,6 +48,7 @@
             <th>Дата приобретения</th>
             <th>Дата списания</th>
             <th>Состояние</th>
+            <th>Гаражное хозяйство</th>
         </tr>
                 {{#transport}}
             <tr>
@@ -56,6 +57,7 @@
                 <td>{{acquirementDate}}</td>
                 <td>{{decommissionDate}}</td>
                 <td>{{state}}</td>
+                <td>{{garage.garageId}}</td>
             </tr>
                 {{/transport}}
     </table>

@@ -128,7 +128,7 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/mileage">
             <div>
                 <button class="button">Пробег</button>
                 <select style="height: 24px">
@@ -142,8 +142,34 @@
                         <option value={{id}}>{{id}}</option>
                     {{/transport}}
                 </select>
-                <input type="date" min="2015-01-01" max="2020-12-31">
-                <button class="query_submit">Submit</button>
+                <div style="margin-left: 45%; margin-bottom: 2%;">
+                    <input type="date" min="2015-01-01" max="2020-12-31">
+                    <select style="height: 24px">
+                        <option selected disabled>Месяц</option>
+                        <option>Январь</option>
+                        <option>Февраль</option>
+                        <option>Март</option>
+                        <option>Апрель</option>
+                        <option>Май</option>
+                        <option>Июнь</option>
+                        <option>Июль</option>
+                        <option>Август</option>
+                        <option>Сентябрь</option>
+                        <option>Октябрь</option>
+                        <option>Ноябрь</option>
+                        <option>Декабрь</option>
+                    </select>
+                    <select style="height: 24px">
+                        <option selected disabled>Год</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                    </select>
+                    <button class="query_submit1">Submit</button>
+                </div>
             </div>
         </form>
         <div class="horizontal_line"></div>
@@ -240,7 +266,7 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/acqDec">
             <div>
                 <button class="button">Полученный и списанный транспорт за период</button>
                 <input type="date" min="2015-01-01" max="2020-12-31">

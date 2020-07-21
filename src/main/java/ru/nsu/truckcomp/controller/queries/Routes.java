@@ -13,7 +13,7 @@ public class Routes {
     private RideRepository rideRepository;
 
     @GetMapping("/routes")
-    public String getDriversInfo(Map<String, Object> model) {
+    public String getRoutesInfo(Map<String, Object> model) {
         model.put("routes", rideRepository.getRoutesDistribution());
         return "query/routes";
     }

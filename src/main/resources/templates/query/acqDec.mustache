@@ -41,7 +41,7 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>БАЗОВАЯ ИНФОРМАЦИЯ ОБ АВТОПАРКЕ ПРЕДПРИЯТИЯ</b></caption>
+        <caption class="caption"><b>ИНФОРМАЦИЯ О ПРИОБРЕТЁННОЙ И СПИСАННОЙ АВТОТЕХНИКЕ</b></caption>
         <tr>
             <th>ID</th>
             <th>Марка</th>
@@ -50,7 +50,7 @@
             <th>Состояние</th>
             <th>Гаражное хозяйство</th>
         </tr>
-                {{#transport}}
+        {{#transport}}
             <tr>
                 <td>{{id}}</td>
                 <td>{{brand}}</td>
@@ -59,7 +59,7 @@
                 <td>{{state}}</td>
                 <td>{{garage.garageId}}</td>
             </tr>
-                {{/transport}}
+        {{/transport}}
     </table>
 </div>
 </body>
