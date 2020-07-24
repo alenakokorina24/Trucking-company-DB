@@ -41,23 +41,27 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>ПЕРЕЧЕНЬ ВОДИТЕЛЕЙ, ОБЩЕЕ КОЛИЧЕСТВО: {{driversNum}}</b></caption>
+        <caption class="caption"><b>РАБОТЫ, КОТОРЫЕ ВЫПОЛНИЛ {{name}}, В ПЕРИОД С {{start}} ПО {{end}}</b></caption>
         <tr>
             <th>ID</th>
-            <th>ФИО</th>
-            <th>должность</th>
-            <th>транспорт</th>
-            <th>бригада</th>
+            <th>Стоимость</th>
+            <th>Принято</th>
+            <th>Возвращено</th>
+            <th>Запчасть</th>
+            <th>Бригада</th>
+            <th>Транспорт</th>
         </tr>
-        {{#drivers}}
+        {{#work}}
             <tr>
-                <td>{{empId}}</td>
-                <td>{{name}}</td>
-                <td>{{position}}</td>
-                <td>{{transport.id}}</td>
+                <td>{{repId}}</td>
+                <td>{{cost}}</td>
+                <td>{{received}}</td>
+                <td>{{returned}}</td>
+                <td>{{sparePart}}</td>
                 <td>{{brigade.brigadeId}}</td>
+                <td>{{transport.id}}</td>
             </tr>
-        {{/drivers}}
+        {{/work}}
     </table>
 </div>
 </body>

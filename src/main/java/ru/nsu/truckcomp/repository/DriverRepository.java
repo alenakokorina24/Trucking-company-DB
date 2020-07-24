@@ -3,10 +3,16 @@ package ru.nsu.truckcomp.repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.Driver;
 
+import java.util.List;
+
 @Transactional
 public interface DriverRepository extends EmployeeBaseRepository<Driver> {
-    Iterable<Driver> findByTransportIdAndBrigade_AreaAreaId(int transportId, int areaId);
-    Iterable<Driver> findByBrigade_AreaAreaId(int areaId);
-    Iterable<Driver> findByTransportId(int transportId);
+    List<Driver> findByTransportIdAndBrigade_AreaAreaId(int transportId, int areaId);
+
+    List<Driver> findByBrigade_AreaAreaId(int areaId);
+
+    List<Driver> findByTransportId(int transportId);
+
+    List<Driver> findAll();
 }
 

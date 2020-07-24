@@ -8,7 +8,7 @@ import ru.nsu.truckcomp.repository.TransportRepository;
 import java.util.Map;
 
 @Controller
-public class AutoParkInfo {
+public class AutoParkController {
     @Autowired
     private TransportRepository transportRepository;
 

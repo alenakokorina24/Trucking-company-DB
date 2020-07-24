@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class Mileage {
+public class MileageController {
     @Autowired
     private RideRepository rideRepository;
 
