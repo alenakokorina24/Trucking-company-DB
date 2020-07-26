@@ -113,12 +113,16 @@
                 <td>{{areaId}}</td>
                 <td>{{chief.empId}}</td>
                 <td>{{chief.name}}</td>
-                <td class="button_td"><form>
-                    <button class="button">EDIT</button>
-                </form></td>
-                <td class="button_td"><form method="post" action="/deleteArea">
-                    <button name="areaId" value={{areaId}} type="submit" class="button">DELETE</button>
-                </form></td>
+                <td class="button_td">
+                    <form>
+                        <button class="button">EDIT</button>
+                    </form>
+                </td>
+                <td class="button_td">
+                    <form method="post" action="/deleteArea">
+                        <button name="areaId" value={{areaId}} type="submit" class="button">DELETE</button>
+                    </form>
+                </td>
             </tr>
         {{/areas}}
     </table>

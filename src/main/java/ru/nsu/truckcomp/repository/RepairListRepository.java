@@ -17,4 +17,6 @@ public interface RepairListRepository extends CrudRepository<RepairList, Integer
             "FROM RepairList r INNER JOIN ServiceStaff s ON r.brigade.brigadeId=s.brigade.brigadeId " +
             "WHERE s.empId = ?1 AND r.transport.id = ?2 AND r.received >= ?3 AND r.returned <= ?4")
     List<RepairList> getWork(int emp, int t, Date start, Date end);
+
+    RepairList findByRepId(int id);
 }

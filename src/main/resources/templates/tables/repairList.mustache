@@ -152,8 +152,16 @@
                 <td>{{sparePart}}</td>
                 <td>{{brigade.brigadeId}}</td>
                 <td>{{transport.id}}</td>
-                <td class="button_td"><button class="button">EDIT</button></td>
-                <td class="button_td"><button class="button">DELETE</button></td>
+                <td class="button_td">
+                    <form>
+                        <button class="button">EDIT</button>
+                    </form>
+                </td>
+                <td class="button_td">
+                    <form method="post" action="/deleteRepairList">
+                        <button name="repId" value={{repId}} type="submit" class="button">DELETE</button>
+                    </form>
+                </td>
             </tr>
         {{/repairList}}
     </table>
