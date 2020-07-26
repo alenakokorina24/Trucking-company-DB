@@ -18,6 +18,18 @@ public class InterfaceController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private BrigadeRepository brigadeRepository;
+
+    @Autowired
+    private GarageRepository garageRepository;
+
+    @Autowired
+    private RideRepository rideRepository;
+
+    @Autowired
+    private RouteRepository routeRepository;
+
     @GetMapping("/")
     public String authorization() {
         return "login";
@@ -29,6 +41,18 @@ public class InterfaceController {
         model.put("transport", transportRepository.findAll());
         model.put("employees", employeeRepository.findAll());
         return "queries";
+    }
+
+    @GetMapping("/menu")
+    public String menu(Map<String, Object> model) {
+        model.put("brigades", brigadeRepository.findAll());
+        model.put("garages", garageRepository.findAll());
+        model.put("rides", rideRepository.findAll());
+        model.put("routes", routeRepository.findAll());
+        model.put("areas", areaRepository.findAll());
+        model.put("transport", transportRepository.findAll());
+        model.put("employees", employeeRepository.findAll());
+        return "menu";
     }
 
     @GetMapping("/register")

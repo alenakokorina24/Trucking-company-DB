@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucking company database manager</title>
+    <style type="text/css">
+        .header {
+            background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+        }
+        .menu {
+            margin-top: 1%;
+            margin-left: 40%;
+            text-align: center;
+            width: 20%;
+            height: 35%;
+            border-radius: 20px;
+        }
+        .button {
+            background-color: #A0A0A0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 80%;
+            height: 30px;
+            margin-bottom: 2%;
+        }
+        .button:hover {
+            background-color: #7F7F7F;
+            cursor: pointer;
+        }
+        .horizontal_line {
+            width: 16%;
+            height: 1px;
+            margin-left: 42%;
+            margin-top: 1%;
+            background-color: #303030;
+        }
+        .query_button {
+            background-color: white;
+            color: black;
+            border-color: black;
+            border-width: 1px;
+            width: 16%;
+            height: 40px;
+            margin-top: 2%;
+            margin-left: 42%;
+        }
+        .query_button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div>
+    <div class="menu">
+        <div style="color: #303030; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">TABLES</div>
+        <div>
+            <form method="get" action="/queries"><div><button class="button">Passenger transport</button></div></form>
+            <form method="get" action="/queries"><div><button class="button">Trucks</button></div></form>
+            <form method="get" action="/recovery"><div><button class="button">Drivers</button></div></form>
+            <form method="get" action="/register"><div><button class="button">Service Staff</button></div></form>
+            <form method="get" action="/queries"><div><button class="button">Bosses</button></div></form>
+            <form method="get" action="/register"><div><button class="button">Brigades</button></div></form>
+            <form method="get" action="/recovery"><div><button class="button">Garages</button></div></form>
+            <form method="get" action="/areas"><div><button class="button">Areas</button></div></form>
+            <form method="get" action="/queries"><div><button class="button">Routes</button></div></form>
+            <form method="get" action="/recovery"><div><button class="button">Rides</button></div></form>
+            <form method="get" action="/repairList"><div><button class="button">Repair list</button></div></form>
+        </div>
+    </div>
+    <div class="horizontal_line"></div>
+    <div><button class="query_button">QUERIES</button></div>
+</div>
+</body>
+</html>
