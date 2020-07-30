@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucking company database manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charseet=UTF-8" />
+    <style type="text/css">
+        .header {
+            background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+        }
+        .caption {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: #A0A0A0;
+            padding: 25px;
+        }
+        th, td {
+            height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            border-style: solid;
+            border-color: #A0A0A0;
+            border-width: 1px;
+        }
+        .button_td {
+            height: 30px;
+            width: 100px;
+            border-style: solid;
+            border-color: white;
+            border-width: 1px;
+            background-color: #A0A0A0;
+        }
+        .button_th {
+            height: 30px;
+            width: 100px;
+            border-style: solid;
+            border-color: #A0A0A0;
+            border-width: 1px;
+        }
+        table {
+            width: 100%;
+            font-size: 14px;
+            border-radius: 15px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .button {
+            border: none;
+            background-color: #A0A0A0;
+            font-weight: bold;
+            color: white;
+        }
+        .button:hover {
+            cursor: pointer;
+        }
+        .insert {
+            height: 90px;
+            background-color: #303030;
+        }
+        .field {
+            width: 9%;
+            height: 24px;
+            margin-top: 30px;
+        }
+        label {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 1%;
+        }
+        .add_button {
+            border: none;
+            background-color: #303030;
+            font-weight: bold;
+            color: white;
+            font-size: 24px;
+            float: right;
+            margin-top: 30px;
+            margin-right: 1%;
+            height: 24px;
+            width: 6%;
+        }
+        .add_button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div class="insert">
+    <form method="post" action="/addTruck">
+        <label>
+            Марка
+            <select class="field" required name="brand">
+                <option>Газ</option>
+                <option>Ваз</option>
+                <option>Пежо</option>
+                <option>Тойота</option>
+            </select>
+        </label>
+        <label>
+            Дата приобретения
+            <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="acquirementDate" value="2020-12-31">
+        </label>
+        <label>
+            Дата списания
+            <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="decommissionDate" value="2020-12-31">
+        </label>
+        <label>
+            Гараж
+            <select class="field" required name="garage">
+                {{#garages}}
+                    <option value={{garageId}}>{{garageId}}</option>
+                {{/garages}}
+            </select>
+        </label>
+        <label>
+            Тип каркаса
+            <select class="field" required name="carcassType">
+                <option>платформа</option>
+                <option>цистерна</option>
+                <option>бортовой</option>
+                <option>тентованный</option>
+            </select>
+        </label>
+        <label>
+            Грузоподъёмность
+            <input required class="field" type="number" min="100" max="5000" step="10" value="100" name="carryingCapacity">
+        </label>
+        <label>
+            Масса
+            <input required class="field" type="number" min="1" max="10" step="1" value="1" name="weight">
+        </label>
+        <button class="add_button" type="submit">ADD</button>
+    </form>
+</div>
+<div>
+    <table>
+        <caption class="caption"><b>ГРУЗОВОЙ ТРАНСПОРТ</b></caption>
+        <tr>
+            <th>ID</th>
+            <th>Марка</th>
+            <th>Дата приобретения</th>
+            <th>Дата списания</th>
+            <th>Гаражное хозяйство</th>
+            <th>Тип каркаса</th>
+            <th>Грузоподъёмность</th>
+            <th>Масса</th>
+            <th class="button_th"></th>
+            <th class="button_th"></th>
+        </tr>
+        {{#trucks}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{brand}}</td>
+                <td>{{acquirementDate}}</td>
+                <td>{{decommissionDate}}</td>
+                <td>{{garage.garageId}}</td>
+                <td>{{capcassType}}</td>
+                <td>{{carryingCapacity}}</td>
+                <td>{{weight}}</td>
+                <td class="button_td">
+                    <form>
+                        <button class="button">EDIT</button>
+                    </form>
+                </td>
+                <td class="button_td">
+                    <form method="post" action="/deleteTruck">
+                        <button name="id" value={{id}} type="submit" class="button">DELETE</button>
+                    </form>
+                </td>
+            </tr>
+        {{/trucks}}
+    </table>
+</div>
+</body>
+</html>

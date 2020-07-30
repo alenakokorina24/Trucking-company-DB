@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class DriversController {
+public class DriversInfoController {
     @Autowired
     private DriverRepository driverRepository;
 
-    @GetMapping("/drivers")
+    @GetMapping("/driversInfo")
     public String getDriversInfo(@RequestParam(required = false) Integer area,
                                  @RequestParam(required = false) Integer transport,
                                  Map<String, Object> model) {
@@ -33,6 +33,6 @@ public class DriversController {
         model.put("drivers", drivers);
         model.put("driversNum", drivers.size());
 
-        return "query/drivers";
+        return "query/driversInfo";
     }
 }

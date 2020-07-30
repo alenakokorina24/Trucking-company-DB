@@ -8,13 +8,13 @@ import ru.nsu.truckcomp.repository.RideRepository;
 import java.util.Map;
 
 @Controller
-public class RoutesController {
+public class RoutesDistributionController {
     @Autowired
     private RideRepository rideRepository;
 
-    @GetMapping("/routes")
+    @GetMapping("/routesDistribution")
     public String getRoutesInfo(Map<String, Object> model) {
         model.put("routes", rideRepository.getRoutesDistribution());
-        return "query/routes";
+        return "query/routesDistribution";
     }
 }

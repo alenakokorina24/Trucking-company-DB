@@ -93,39 +93,45 @@
     </h2>
 </div>
 <div class="insert">
-    <form method="post" action="/addRoute">
+    <form method="post" action="/addBoss">
         <label>
-            Длина (км)
-            <input required class="field" type="number" min="10" max="5000" step="5" value="10" name="length">
+            ФИО
+            <input required class="field" type="text" name="name">
+        </label>
+        <label>
+            Должность
+            <input required class="field" type="text" name="position">
         </label>
         <button class="add_button" type="submit">ADD</button>
     </form>
 </div>
 <div>
     <table>
-        <caption class="caption"><b>МАРШРУТЫ</b></caption>
+        <caption class="caption"><b>НАЧАЛЬСТВО</b></caption>
         <tr>
             <th>ID</th>
-            <th>Длина</th>
+            <th>ФИО</th>
+            <th>должность</th>
             <th class="button_th"></th>
             <th class="button_th"></th>
         </tr>
-        {{#routes}}
+        {{#bosses}}
             <tr>
-                <td>{{routeId}}</td>
-                <td>{{length}}</td>
+                <td>{{empId}}</td>
+                <td>{{name}}</td>
+                <td>{{position}}</td>
                 <td class="button_td">
                     <form>
                         <button class="button">EDIT</button>
                     </form>
                 </td>
                 <td class="button_td">
-                    <form method="post" action="/deleteRoute">
-                        <button name="routeId" value={{routeId}} type="submit" class="button">DELETE</button>
+                    <form method="post" action="/deleteBoss">
+                        <button name="empId" value={{empId}} type="submit" class="button">DELETE</button>
                     </form>
                 </td>
             </tr>
-        {{/routes}}
+        {{/bosses}}
     </table>
 </div>
 </body>

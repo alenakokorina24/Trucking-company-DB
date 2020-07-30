@@ -6,18 +6,16 @@ public class TransportArea implements Serializable {
     private int id;
     private Garage garage;
     private String brand;
-    private String state;
     private Area area;
 
     public TransportArea() {
 
     }
 
-    public TransportArea(int id, String brand, String state, Garage garage, Area area) {
+    public TransportArea(int id, String brand, Garage garage, Area area) {
         this.id = id;
         this.garage = garage;
         this.brand = brand;
-        this.state = state;
         this.area = area;
     }
 
@@ -43,14 +41,6 @@ public class TransportArea implements Serializable {
 
     public void setBrand(String brand) {
         this.brand = brand;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public Area getArea() {

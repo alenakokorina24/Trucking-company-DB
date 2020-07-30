@@ -21,7 +21,6 @@ public class Transport {
     private Set<Driver> drivers = new HashSet<>();
 
     private String brand;
-    private String state;
     private Date acquirementDate;
     private Date decommissionDate;
 
@@ -58,14 +57,6 @@ public class Transport {
 
     public void setBrand(String brand) {
         this.brand = brand;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public Date getAcquirementDate() {

@@ -14,5 +14,7 @@ public interface DriverRepository extends EmployeeBaseRepository<Driver> {
     List<Driver> findByTransportId(int transportId);
 
     List<Driver> findAll();
+
+    Driver findByEmpId(int id);
 }
 
