@@ -6,6 +6,5 @@ import ru.nsu.truckcomp.model.Transport;
 
 @NoRepositoryBean
 public interface TransportBaseRepository<T extends Transport> extends CrudRepository<T, Integer> {
-
 }
 

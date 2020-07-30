@@ -32,6 +32,13 @@
             border-width: 1px;
             background-color: #A0A0A0;
         }
+        .button_th {
+            height: 30px;
+            width: 100px;
+            border-style: solid;
+            border-color: #A0A0A0;
+            border-width: 1px;
+        }
         table {
             width: 100%;
             font-size: 14px;
@@ -86,10 +93,10 @@
     </h2>
 </div>
 <div class="insert">
-    <form>
+    <form method="post" action="/addRepairList">
         <label>
             Стоимость
-            <input required lass="field" type="number" min="500" max="50000" step="100" value="500" name="cost">
+            <input required class="field" type="number" min="500" max="50000" step="100" value="500" name="cost">
         </label>
         <label>
             Принято
@@ -126,7 +133,7 @@
                 {{/transport}}
             </select>
         </label>
-        <button class="add_button">ADD</button>
+        <button class="add_button" type="submit">ADD</button>
     </form>
 </div>
 <div>
@@ -140,8 +147,8 @@
             <th>Запчасть</th>
             <th>Бригада</th>
             <th>Транспорт</th>
-            <th></th>
-            <th></th>
+            <th class="button_th"></th>
+            <th class="button_th"></th>
         </tr>
         {{#repairList}}
             <tr>

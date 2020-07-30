@@ -13,4 +13,6 @@ public interface RideRepository extends CrudRepository<Ride, Integer> {
     List<TransportRoute> getRoutesDistribution();
 
     Iterable<Ride> findByDateAndTransport_Id(Date date, int id);
+
+    Ride findByRideId(int id);
 }

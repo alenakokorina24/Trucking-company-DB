@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ru.nsu.truckcomp.model.Route;
 
 public interface RouteRepository extends CrudRepository<Route, Integer> {
-
+    Route findByRouteId(int id);
 }
