@@ -19,4 +19,30 @@ public interface RepairListRepository extends CrudRepository<RepairList, Integer
     List<RepairList> getWork(int emp, int t, Date start, Date end);
 
     RepairList findByRepId(int id);
+
+    List<RepairList> findByTransport_IdAndReceivedAfterAndReturnedBefore(int id, Date start, Date end);
+
+    List<RepairList> findByTransport_BrandAndReceivedAfterAndReturnedBefore(String brand, Date start, Date end);
+
+    @Query(value = "SELECT new ru.nsu.truckcomp.model.RepairList(r.brigade, r.transport, r.sparePart, r.cost, r.received, r.returned) " +
+            "FROM RepairList r INNER JOIN PassengerTransport t ON r.transport.id=t.id " +
+            "AND r.received >= ?1 AND r.returned <= ?2")
+    List<RepairList> getPassengerTransportRepairs(Date start, Date end);
+
+    @Query(value = "SELECT new ru.nsu.truckcomp.model.RepairList(r.brigade, r.transport, r.sparePart, r.cost, r.received, r.returned) " +
+            "FROM RepairList r INNER JOIN Truck t ON r.transport.id=t.id " +
+            "AND r.received >= ?1 AND r.returned <= ?2")
+    List<RepairList> getTruckRepairs(Date start, Date end);
+
+    @Query(value = "SELECT new ru.nsu.truckcomp.model.RepairList(r.brigade, r.transport, r.sparePart, r.cost, r.received, r.returned) " +
+            "FROM RepairList r INNER JOIN PassengerTransport t ON r.transport.id=t.id " +
+            "AND t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3")
+    List<RepairList> getPassengerTransportRepairsWithBrand(String brand, Date start, Date end);
+
+    @Query(value = "SELECT new ru.nsu.truckcomp.model.RepairList(r.brigade, r.transport, r.sparePart, r.cost, r.received, r.returned) " +
+            "FROM RepairList r INNER JOIN Truck t ON r.transport.id=t.id " +
+            "AND t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3")
+    List<RepairList> getTruckRepairsWithBrand(String brand, Date start, Date end);
+
+    List<RepairList> findAll();
 }

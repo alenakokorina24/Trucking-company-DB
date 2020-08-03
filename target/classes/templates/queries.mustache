@@ -173,30 +173,30 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/repairInfo">
             <div>
                 <button class="button">Ремонтный лист</button>
-                <select style="height: 24px">
+                <select style="height: 24px" name="category">
                     <option selected disabled>Категория</option>
                     <option>пассажирский</option>
                     <option>грузовой</option>
                 </select>
-                <select style="height: 24px">
+                <select style="height: 24px" name="brand">
                     <option selected disabled>Марка</option>
                     <option>Газ</option>
                     <option>Ваз</option>
                     <option>Пежо</option>
                     <option>Тойота</option>
                 </select>
-                <select style="height: 24px">
+                <select style="height: 24px" name="transport">
                     <option selected disabled>Автомобиль</option>
                     {{#transport}}
                         <option value={{id}}>{{id}}</option>
                     {{/transport}}
                 </select>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
-                    <input type="date" min="2015-01-01" max="2020-12-31" value="2015-01-01">
-                    <input type="date" min="2015-01-01" max="2020-12-31" value="2020-12-31">
+                    <input name="start" type="date" min="2015-01-01" max="2020-12-31" value="2015-01-01">
+                    <input name="end" type="date" min="2015-01-01" max="2020-12-31" value="2020-12-31">
                     <button class="query_submit1">Submit</button>
                 </div>
             </div>
@@ -209,11 +209,11 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/garageFacilities">
             <div>
                 <button class="button">Данные о гаражном хозяйстве</button>
-                <select style="height: 24px">
-                    <option selected disabled>Категория</option>
+                <select style="height: 24px" name="category">
+                    <option selected disabled value="null">Категория</option>
                     <option>пассажирский</option>
                     <option>грузовой</option>
                 </select>
@@ -228,11 +228,11 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/truckRides">
             <div>
                 <button class="button">Грузоперевозки за период</button>
-                <input type="date" min="2015-01-01" max="2020-12-31" value="2015-01-01">
-                <input type="date" min="2015-01-01" max="2020-12-31" value="2020-12-31">
+                <input name="start" type="date" min="2015-01-01" max="2020-12-31" value="2015-01-01">
+                <input name="end" type="date" min="2015-01-01" max="2020-12-31" value="2020-12-31">
                 <button class="query_submit">Submit</button>
             </div>
         </form>

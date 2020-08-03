@@ -32,7 +32,6 @@ public class EmployeeWorkController {
         model.put("name", employeeRepository.findByEmpId(employee).getName());
         model.put("start", start);
         model.put("end", end);
-
         return "query/work";
     }
 }

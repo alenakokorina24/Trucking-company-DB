@@ -24,7 +24,9 @@ public class DriversController {
 
     @GetMapping("/drivers")
     public String getDrivers(Map<String, Object> model) {
-        model.put("bosses", driverRepository.findAll());
+        model.put("drivers", driverRepository.findAll());
+        model.put("brigades", brigadeRepository.findAll());
+        model.put("transport", transportRepository.findAll());
         return "tables/drivers";
     }
 

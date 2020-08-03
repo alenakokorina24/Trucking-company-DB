@@ -18,11 +18,10 @@ public class TransportInfoController {
     @GetMapping("/acqDec")
     public String getTransportInfo(@RequestParam(required = false) Date start,
                                    @RequestParam(required = false) Date end,
-                                   Map<String, Object> model) throws ParseException {
+                                   Map<String, Object> model) {
         model.put("transport", transportRepository.findByAcquirementDateAfterAndAcquirementDateBeforeOrDecommissionDateAfterAndDecommissionDateBefore(start, end, start, end));
         model.put("start", start);
         model.put("end", end);
-
         return "query/acqDec";
     }
 }

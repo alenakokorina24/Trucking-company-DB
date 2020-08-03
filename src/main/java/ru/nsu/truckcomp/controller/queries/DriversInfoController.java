@@ -32,7 +32,6 @@ public class DriversInfoController {
 
         model.put("drivers", drivers);
         model.put("driversNum", drivers.size());
-
         return "query/driversInfo";
     }
 }
