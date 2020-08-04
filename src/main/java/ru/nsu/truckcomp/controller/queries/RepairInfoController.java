@@ -16,6 +16,12 @@ public class RepairInfoController {
     @Autowired
     private RepairListRepository repairListRepository;
 
+    private void updateModel(Map<String, Object> model, List<RepairList> repairs, String transportInfo) {
+        model.put("repairList", repairs);
+        model.put("transportInfo", transportInfo);
+        model.put("repairsNum", repairs.size());
+    }
+
     private void getRepairsByCategory(Map<String, Object> model, String category, Date start, Date end) {
         List<RepairList> repairs;
         String transportInfo;
@@ -27,9 +33,7 @@ public class RepairInfoController {
             repairs = repairListRepository.getTruckRepairs(start, end);
             transportInfo = "ГРУЗОВОГО ТРАНСПОРТА";
         }
-        model.put("repairList", repairs);
-        model.put("transportInfo", transportInfo);
-        model.put("repairsNum", repairs.size());
+        updateModel(model, repairs, transportInfo);
     }
 
     private void getRepairsByBrandAndCategory(Map<String, Object> model, String brand, String category, Date start, Date end) {
@@ -43,30 +47,22 @@ public class RepairInfoController {
             repairs = repairListRepository.getTruckRepairsWithBrand(brand, start, end);
             transportInfo = "ГРУЗОВОГО ТРАНСПОРТА МАРКИ " + brand;
         }
-        model.put("repairList", repairs);
-        model.put("transportInfo", transportInfo);
-        model.put("repairsNum", repairs.size());
+        updateModel(model, repairs, transportInfo);
     }
 
     private void getRepairsByBrand(Map<String, Object> model, String brand, Date start, Date end) {
         List<RepairList> repairs = repairListRepository.findByTransport_BrandAndReceivedAfterAndReturnedBefore(brand, start, end);
-        model.put("repairList", repairs);
-        model.put("transportInfo", "АВТОМОБИЛЕЙ МАРКИ " + brand);
-        model.put("repairsNum", repairs.size());
+        updateModel(model, repairs, "АВТОМОБИЛЕЙ МАРКИ " + brand);
     }
 
     private void getRepairsById(Map<String, Object> model, Integer transport, Date start, Date end) {
         List<RepairList> repairs = repairListRepository.findByTransport_IdAndReceivedAfterAndReturnedBefore(transport, start, end);
-        model.put("repairList", repairs);
-        model.put("transportInfo", "АВТОМАШИНЫ №" + transport);
-        model.put("repairsNum", repairs.size());
+        updateModel(model, repairs, "АВТОМАШИНЫ №" + transport);
     }
 
     private void getRepairs(Map<String, Object> model) {
         List<RepairList> repairs = repairListRepository.findAll();
-        model.put("repairList", repairs);
-        model.put("transportInfo", "ВСЕГО ТРАНСПОРТА");
-        model.put("repairsNum", repairs.size());
+        updateModel(model, repairs, "ВСЕГО ТРАНСПОРТА");
     }
 
     @GetMapping("/repairInfo")

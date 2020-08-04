@@ -19,7 +19,6 @@ public class MileageController {
     @Autowired
     private RideRepository rideRepository;
 
-    // TODO: сделать этот запрос блин
 
     @GetMapping("/mileage")
     public String getMileageInfo(@RequestParam(required = false) String category,
