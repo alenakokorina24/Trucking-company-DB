@@ -131,43 +131,28 @@
         <form method="get" action="/mileage">
             <div>
                 <button class="button">Пробег</button>
-                <select style="height: 24px">
+                <select style="height: 24px" name="category">
                     <option selected disabled>Категория</option>
                     <option>пассажирский</option>
                     <option>грузовой</option>
                 </select>
-                <select style="height: 24px">
+                <select style="height: 24px" name="transport">
                     <option selected disabled>Автомобиль</option>
                     {{#transport}}
                         <option value={{id}}>{{id}}</option>
                     {{/transport}}
                 </select>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
-                    <input type="date" min="2015-01-01" max="2020-12-31">
-                    <select style="height: 24px">
-                        <option selected disabled>Месяц</option>
-                        <option>Январь</option>
-                        <option>Февраль</option>
-                        <option>Март</option>
-                        <option>Апрель</option>
-                        <option>Май</option>
-                        <option>Июнь</option>
-                        <option>Июль</option>
-                        <option>Август</option>
-                        <option>Сентябрь</option>
-                        <option>Октябрь</option>
-                        <option>Ноябрь</option>
-                        <option>Декабрь</option>
-                    </select>
-                    <select style="height: 24px">
-                        <option selected disabled>Год</option>
-                        <option>2015</option>
-                        <option>2016</option>
-                        <option>2017</option>
-                        <option>2018</option>
-                        <option>2019</option>
-                        <option>2020</option>
-                    </select>
+                    <input id="checkboxYear" type="checkbox" name="yearChecked" style="margin-right: 1%">
+                    <input id="year" style="height: 18px" value="2015" type="number" step="1" min="2015" max="2020" name="year">
+                </div>
+                <div style="margin-left: 45%; margin-bottom: 2%;">
+                    <input id="checkboxMonth" type="checkbox" name="monthChecked" style="margin-right: 1%">
+                    <input id="month" style="width: 180px;" value="2015-01" type="month" min="2015-01" name="month">
+                </div>
+                <div style="margin-left: 45%; margin-bottom: 2%;">
+                    <input id="checkboxDay" type="checkbox" name="dayChecked" style="margin-right: 1%">
+                    <input id="day" value="2015-01-01" type="date" min="2015-01-01" max="2020-12-31" name="day">
                     <button class="query_submit1">Submit</button>
                 </div>
             </div>
@@ -284,10 +269,10 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/">
+        <form method="get" action="/subordinates">
             <div>
                 <button class="button">Состав подчинённых</button>
-                <select style="height: 24px" required>
+                <select style="height: 24px" required name="employee">
                     <option selected disabled>Сотрудник</option>
                     {{#employees}}
                         <option value={{empId}}>{{empId}}</option>
@@ -330,5 +315,14 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#checkboxYear').change(function() {
+            if (this.checked) {
+                $('#checkboxDay').prop("checked", true);
+            }
+        });
+    });
+</script>
 </body>
 </html>

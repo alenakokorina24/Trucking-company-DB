@@ -41,17 +41,19 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>ПРОБЕГ</b></caption>
+        <caption class="caption"><b>ПОДЧИНЁННЫЕ СОТРУДНИКА {{employee}}, ДОЛЖНОСТЬ: "{{position}}"</b></caption>
         <tr>
             <th>ID</th>
-            <th>Пробег (км)</th>
+            <th>ФИО</th>
+            <th>Должность</th>
         </tr>
-        {{#mileage}}
+        {{#employees}}
             <tr>
-                <td>{{id}}</td>
-                <td>{{mileage}}</td>
+                <td>{{empId}}</td>
+                <td>{{name}}</td>
+                <td>{{position}}</td>
             </tr>
-        {{/mileage}}
+        {{/employees}}
     </table>
 </div>
 </body>
