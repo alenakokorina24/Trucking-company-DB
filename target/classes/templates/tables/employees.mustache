@@ -123,59 +123,60 @@
 </div>
 <div>
 <div class="insert">
-    <form method="post" action="/addRide">
+    <form method="post" action="/addEmployee">
         <label>
-            <select class="field" required name="route">
-                {{#routes}}
-                    <option value={{routeId}}>{{routeId}}</option>
-                {{/routes}}
-            </select>
-            Маршрут
+            <input required class="field" type="text" name="name">
+            ФИО
         </label>
         <label>
-            <select class="field" required name="transport">
-                {{#transport}}
-                    <option value={{id}}>{{id}}</option>
-                {{/transport}}
-            </select>
-            Транспорт
+            <input required class="field" type="text" name="position">
+            Должность
         </label>
         <label>
-            <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="date" value="2020-12-31">
-            Дата
+            <select class="field" name="bossId">
+                <option value="0" selected>Нет</option>
+                {{#employees}}
+                    <option value={{empId}}>{{empId}}</option>
+                {{/employees}}
+            </select>
+            Начальник
         </label>
         <button class="add_button" type="submit">Add</button>
     </form>
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>ПОЕЗДКИ</b></caption>
+        <caption class="caption"><b>СОТРУДНИКИ</b></caption>
         <tr>
             <th>ID</th>
-            <th>Дата</th>
-            <th>Маршрут</th>
-            <th>Транспорт</th>
+            <th>ФИО</th>
+            <th>Должность</th>
+            <th>Начальник</th>
             <th class="button_th"></th>
             <th class="button_th"></th>
         </tr>
-        {{#rides}}
+        {{#employees}}
             <tr>
-                <td>{{rideId}}</td>
-                <td>{{date}}</td>
-                <td>{{route.routeId}}</td>
-                <td>{{transport.id}}</td>
+                <td>{{empId}}</td>
+                <td>{{name}}</td>
+                <td>{{position}}</td>
+                <td>
+                    {{#boss.empId}}
+                        {{.}}
+                    {{/boss.empId}}
+                </td>
                 <td class="button_td">
                     <form>
                         <button class="button">EDIT</button>
                     </form>
                 </td>
                 <td class="button_td">
-                    <form method="post" action="/deleteRide">
-                        <button name="rideId" value={{rideId}} type="submit" class="button">DELETE</button>
+                    <form method="post" action="/deleteEmployee">
+                        <button name="empId" value={{empId}} type="submit" class="button">DELETE</button>
                     </form>
                 </td>
             </tr>
-        {{/rides}}
+        {{/employees}}
     </table>
 </div>
 </div>

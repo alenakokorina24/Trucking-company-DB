@@ -17,7 +17,7 @@ public class Transport {
     @JoinColumn(name = "garage_id")
     private Garage garage;
 
-    @OneToMany(mappedBy = "transport", targetEntity = Driver.class)
+    @OneToMany(mappedBy = "transport", targetEntity = Driver.class, cascade = CascadeType.ALL)
     private Set<Driver> drivers = new HashSet<>();
 
     private String brand;

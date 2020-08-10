@@ -23,6 +23,7 @@ public class ServiceStaffController {
     public String getServiceStaff(Map<String, Object> model) {
         model.put("serviceStaff", serviceStaffRepository.findAll());
         model.put("brigades", brigadeRepository.findAll());
+        model.put("employees", employeeRepository.findAll());
         return "tables/serviceStaff";
     }
 
@@ -30,8 +31,11 @@ public class ServiceStaffController {
     public String addServiceStaff(@RequestParam String name,
                                   @RequestParam String position,
                                   @RequestParam Integer brigade,
+                                  @RequestParam Integer boss,
                                   Map<String, Object> model) {
-        ServiceStaff serviceStaff = new ServiceStaff(name, position, brigadeRepository.findByBrigadeId(brigade));
+        ServiceStaff serviceStaff = new ServiceStaff(name, position,
+                brigadeRepository.findByBrigadeId(brigade),
+                employeeRepository.findByEmpId(boss));
         serviceStaffRepository.save(serviceStaff);
         getServiceStaff(model);
         return "tables/serviceStaff";

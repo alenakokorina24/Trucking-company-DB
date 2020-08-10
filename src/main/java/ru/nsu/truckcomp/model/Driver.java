@@ -17,8 +17,8 @@ public class Driver extends Employee {
 
     }
 
-    public Driver(String name, String position, Transport transport, Brigade brigade) {
-        super(name, position);
+    public Driver(String name, String position, Transport transport, Brigade brigade, Employee boss) {
+        super(name, position, boss);
         this.transport = transport;
         this.brigade = brigade;
     }

@@ -27,6 +27,7 @@ public class DriversController {
         model.put("drivers", driverRepository.findAll());
         model.put("brigades", brigadeRepository.findAll());
         model.put("transport", transportRepository.findAll());
+        model.put("employees", employeeRepository.findAll());
         return "tables/drivers";
     }
 
@@ -34,8 +35,12 @@ public class DriversController {
     public String addDriver(@RequestParam String name,
                             @RequestParam Integer brigade,
                             @RequestParam Integer transport,
+                            @RequestParam Integer boss,
                             Map<String, Object> model) {
-        Driver driver = new Driver(name, "водитель", transportRepository.findById(transport).get(), brigadeRepository.findByBrigadeId(brigade));
+        Driver driver = new Driver(name, "водитель",
+                transportRepository.findById(transport).get(),
+                brigadeRepository.findByBrigadeId(brigade),
+                employeeRepository.findByEmpId(boss));
         driverRepository.save(driver);
         getDrivers(model);
         return "tables/drivers";

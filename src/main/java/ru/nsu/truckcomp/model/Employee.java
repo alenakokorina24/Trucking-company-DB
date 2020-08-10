@@ -1,6 +1,8 @@
 package ru.nsu.truckcomp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -13,13 +15,21 @@ public class Employee {
     private String name;
     private String position;
 
+    @ManyToOne
+    @JoinColumn(name="boss_id")
+    private Employee boss;
+
+    @OneToMany(mappedBy = "boss", targetEntity = Employee.class, cascade = CascadeType.ALL)
+    private Set<Employee> subordinates = new HashSet<>();
+
     public Employee() {
 
     }
 
-    public Employee(String name, String position) {
+    public Employee(String name, String position, Employee boss) {
         this.name = name;
         this.position = position;
+        this.boss = boss;
     }
 
     public int getEmpId() {
@@ -44,5 +54,13 @@ public class Employee {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public Employee getBoss() {
+        return boss;
+    }
+
+    public void setBoss(Employee boss) {
+        this.boss = boss;
     }
 }

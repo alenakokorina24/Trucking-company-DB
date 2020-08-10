@@ -10,7 +10,6 @@ import java.util.List;
 public interface EmployeeRepository extends EmployeeBaseRepository<Employee> {
     Employee findByEmpId(int id);
 
-
-
+    List<Employee> findByBoss_EmpId(int is);
 }
 

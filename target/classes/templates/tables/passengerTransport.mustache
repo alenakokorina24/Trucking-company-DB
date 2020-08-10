@@ -13,8 +13,9 @@
         .caption {
             font-size: 20px;
             font-family: Arial, Helvetica, sans-serif;
-            color: white;
-            background-color: #A0A0A0;
+            color: #303030;
+            text-align: left;
+            background-color: white;
             padding: 25px;
         }
         th, td {
@@ -56,30 +57,33 @@
             cursor: pointer;
         }
         .insert {
-            height: 90px;
-            background-color: #303030;
+            height: 500px;
+            background-color: white;
+            border-color: black;
+            border-width: 1px;
+            border-style: solid;
+            float: left;
+            width: 19%;
+            margin: 1%;
+            position: relative;
         }
         .field {
-            width: 9%;
+            width: 45%;
             height: 24px;
             margin-top: 30px;
-        }
-        label {
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
             margin-left: 1%;
         }
         .add_button {
-            border: none;
-            background-color: #303030;
-            font-weight: bold;
-            color: white;
-            font-size: 24px;
-            float: right;
-            margin-top: 30px;
-            margin-right: 1%;
-            height: 24px;
-            width: 6%;
+            border-color: #303030;
+            border-width: 1px;
+            background-color: white;
+            color: #303030;
+            font-size: 20px;
+            margin-left: 30%;
+            height: 30px;
+            width: 30%;
+            position: absolute;
+            bottom: 10px;
         }
         .add_button:hover {
             cursor: pointer;
@@ -92,6 +96,7 @@
             background-color: #E5C821;
             border-color: white;
             border-radius: 4px;
+            border-style: solid;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
             font-size: 24px;
@@ -99,6 +104,11 @@
         }
         .back_button:hover {
             cursor: pointer;
+        }
+        label {
+            color: #303030;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 1%;
         }
     </style>
 </head>
@@ -111,49 +121,54 @@
         Trucking company database manager
     </h2>
 </div>
+<div>
 <div class="insert">
     <form method="post" action="/addPassengerTransport">
+        <div>
         <label>
-            Марка
             <select class="field" required name="brand">
                 <option>Газ</option>
                 <option>Ваз</option>
                 <option>Пежо</option>
                 <option>Тойота</option>
             </select>
+            Марка
         </label>
         <label>
-            Дата приобретения
             <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="acquirementDate" value="2020-12-31">
+            Дата приобретения
         </label>
         <label>
-            Дата списания
             <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="decommissionDate" value="2020-12-31">
+            Дата списания
         </label>
         <label>
-            Гараж
             <select class="field" required name="garage">
                 {{#garages}}
                     <option value={{garageId}}>{{garageId}}</option>
                 {{/garages}}
             </select>
+            Гараж
         </label>
+        </div>
+        <div>
         <label>
-            Вместимость
             <input required class="field" type="number" min="1" max="40" step="1" value="1" name="capacity">
+            Вместимость
         </label>
         <label>
-            Тип
             <select class="field" required name="type">
                 <option>автобус</option>
                 <option>маршрутное такси</option>
                 <option>такси</option>
             </select>
+            Тип
         </label>
-        <button class="add_button" type="submit">ADD</button>
+        </div>
+        <button class="add_button" type="submit">Add</button>
     </form>
 </div>
-<div>
+<div style="float: left; width: 78%;">
     <table>
         <caption class="caption"><b>ПАССАЖИРСКИЙ ТРАНСПОРТ</b></caption>
         <tr>
@@ -189,6 +204,7 @@
             </tr>
         {{/passengerTransport}}
     </table>
+</div>
 </div>
 </body>
 </html>

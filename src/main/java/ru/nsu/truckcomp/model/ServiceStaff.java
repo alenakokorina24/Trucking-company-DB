@@ -13,8 +13,8 @@ public class ServiceStaff extends Employee {
 
     }
 
-    public ServiceStaff(String name, String position, Brigade brigade) {
-        super(name, position);
+    public ServiceStaff(String name, String position, Brigade brigade, Employee boss) {
+        super(name, position, boss);
         this.brigade = brigade;
     }
 
