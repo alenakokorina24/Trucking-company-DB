@@ -63,4 +63,8 @@ public class Employee {
     public void setBoss(Employee boss) {
         this.boss = boss;
     }
+
+    public Set<Employee> getSubordinates() {
+        return subordinates;
+    }
 }

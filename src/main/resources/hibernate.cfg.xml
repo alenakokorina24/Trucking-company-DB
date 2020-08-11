@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/truckingCompany</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">postgres</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">100</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <mapping class="ru.nsu.truckcomp.model.Area" />
+        <mapping class="ru.nsu.truckcomp.model.Brigade" />
+        <mapping class="ru.nsu.truckcomp.model.Driver" />
+        <mapping class="ru.nsu.truckcomp.model.Employee" />
+        <mapping class="ru.nsu.truckcomp.model.Garage" />
+        <mapping class="ru.nsu.truckcomp.model.Mileage" />
+        <mapping class="ru.nsu.truckcomp.model.PassengerTransport" />
+        <mapping class="ru.nsu.truckcomp.model.RepairList" />
+        <mapping class="ru.nsu.truckcomp.model.Ride" />
+        <mapping class="ru.nsu.truckcomp.model.Route" />
+        <mapping class="ru.nsu.truckcomp.model.ServiceStaff" />
+        <mapping class="ru.nsu.truckcomp.model.Transport" />
+        <mapping class="ru.nsu.truckcomp.model.TransportArea" />
+        <mapping class="ru.nsu.truckcomp.model.TransportRoute" />
+        <mapping class="ru.nsu.truckcomp.model.Truck" />
+    </session-factory>
+</hibernate-configuration>
