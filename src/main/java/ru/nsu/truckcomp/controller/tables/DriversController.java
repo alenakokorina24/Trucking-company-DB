@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.nsu.truckcomp.model.Driver;
 import ru.nsu.truckcomp.repository.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -31,6 +32,7 @@ public class DriversController {
         return "tables/drivers";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addDriver")
     public String addDriver(@RequestParam String name,
                             @RequestParam Integer brigade,
@@ -46,6 +48,7 @@ public class DriversController {
         return "tables/drivers";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteDriver")
     public String deleteDriver(@RequestParam Integer empId,
                                Map<String, Object> model) {

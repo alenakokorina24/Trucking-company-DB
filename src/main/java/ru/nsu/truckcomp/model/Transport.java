@@ -17,8 +17,14 @@ public class Transport {
     @JoinColumn(name = "garage_id")
     private Garage garage;
 
-    @OneToMany(mappedBy = "transport", targetEntity = Driver.class, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "transport", targetEntity = Driver.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Driver> drivers = new HashSet<>();
+
+    @OneToMany(mappedBy = "transport", targetEntity = RepairList.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<RepairList> repairLists = new HashSet<>();
+
+    @OneToMany(mappedBy = "transport", targetEntity = Ride.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Ride> rides = new HashSet<>();
 
     private String brand;
     private Date acquirementDate;

@@ -1,6 +1,8 @@
 package ru.nsu.truckcomp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "ROUTES")
@@ -10,6 +12,9 @@ public class Route {
     private int routeId;
 
     private int routeLength;
+
+    @OneToMany(mappedBy = "route", targetEntity = Ride.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Ride> rides = new HashSet<>();
 
     public Route() {
 

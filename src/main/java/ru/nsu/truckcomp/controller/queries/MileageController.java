@@ -69,21 +69,23 @@ public class MileageController {
     }
 
     @GetMapping("/mileage")
-    public String getMileageInfo(@RequestParam(required = false) String category,
+    public String getMileageInfo(@RequestParam String category,
                                  @RequestParam(required = false) Integer transport,
-                                 @RequestParam(required = false) Boolean dayChecked,
-                                 @RequestParam(required = false) Boolean monthChecked,
-                                 @RequestParam(required = false) Boolean yearChecked,
+                                 @RequestParam String date,
                                  @RequestParam Date day,
                                  @RequestParam String month,
                                  @RequestParam Integer year,
                                  Map<String, Object> model) {
-        if (dayChecked) {
-            getMileageByDay(model, transport, category, day);
-        } else if (monthChecked) {
-            getMileageByMonth(model, transport, category, month);
-        } else if (yearChecked) {
-            getMileageByYear(model, transport, category, year);
+        switch (date) {
+            case "day":
+                getMileageByDay(model, transport, category, day);
+                break;
+            case "month":
+                getMileageByMonth(model, transport, category, month);
+                break;
+            case "year":
+                getMileageByYear(model, transport, category, year);
+                break;
         }
         return "query/mileage";
     }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.nsu.truckcomp.model.ServiceStaff;
 import ru.nsu.truckcomp.repository.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -27,6 +28,7 @@ public class ServiceStaffController {
         return "tables/serviceStaff";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addServiceStaff")
     public String addServiceStaff(@RequestParam String name,
                                   @RequestParam String position,
@@ -41,6 +43,7 @@ public class ServiceStaffController {
         return "tables/serviceStaff";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteServiceStaff")
     public String deleteServiceStaff(@RequestParam Integer empId,
                                      Map<String, Object> model) {

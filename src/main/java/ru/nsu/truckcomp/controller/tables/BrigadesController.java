@@ -11,6 +11,7 @@ import ru.nsu.truckcomp.repository.AreaRepository;
 import ru.nsu.truckcomp.repository.BrigadeRepository;
 import ru.nsu.truckcomp.repository.EmployeeRepository;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -32,6 +33,7 @@ public class BrigadesController {
         return "tables/brigades";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addBrigade")
     public String addBrigade(@RequestParam Integer area,
                           @RequestParam Integer brigadier,
@@ -42,6 +44,7 @@ public class BrigadesController {
         return "tables/brigades";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteBrigade")
     public String deleteBrigade(@RequestParam Integer brigadeId,
                              Map<String, Object> model) {

@@ -10,6 +10,7 @@ import ru.nsu.truckcomp.repository.RideRepository;
 import ru.nsu.truckcomp.repository.RouteRepository;
 import ru.nsu.truckcomp.repository.TransportRepository;
 
+import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -32,6 +33,7 @@ public class RidesController {
         return "tables/rides";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addRide")
     public String addRide(@RequestParam Integer route,
                           @RequestParam Date date,
@@ -43,6 +45,7 @@ public class RidesController {
         return "tables/rides";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteRide")
     public String deleteRide(@RequestParam Integer rideId,
                              Map<String, Object> model) {

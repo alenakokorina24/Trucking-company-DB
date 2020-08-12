@@ -15,10 +15,10 @@ public class Area {
     @JoinColumn(name = "emp_id")
     private Employee chief;
 
-    @OneToMany(mappedBy = "area", targetEntity = Garage.class, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "area", targetEntity = Garage.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Garage> garages = new HashSet<>();
 
-    @OneToMany(mappedBy = "area", targetEntity = Brigade.class, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "area", targetEntity = Brigade.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Brigade> brigades = new HashSet<>();
 
     public Area() {

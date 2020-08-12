@@ -10,6 +10,7 @@ import ru.nsu.truckcomp.repository.GarageRepository;
 import ru.nsu.truckcomp.repository.PassTransportRepository;
 import ru.nsu.truckcomp.repository.TransportRepository;
 
+import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -31,6 +32,7 @@ public class PassengerTransportController {
         return "tables/passengerTransport";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addPassengerTransport")
     public String addPassengerTransport(@RequestParam String brand,
                                         @RequestParam Date acquirementDate,
@@ -45,6 +47,7 @@ public class PassengerTransportController {
         return "tables/passengerTransport";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deletePassengerTransport")
     public String deletePassengerTransport(@RequestParam Integer id,
                              Map<String, Object> model) {

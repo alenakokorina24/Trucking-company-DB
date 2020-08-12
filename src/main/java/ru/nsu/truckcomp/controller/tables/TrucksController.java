@@ -7,6 +7,7 @@ import ru.nsu.truckcomp.model.PassengerTransport;
 import ru.nsu.truckcomp.model.Truck;
 import ru.nsu.truckcomp.repository.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -28,6 +29,7 @@ public class TrucksController {
         return "tables/trucks";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addTruck")
     public String addTruck(@RequestParam String brand,
                            @RequestParam Date acquirementDate,
@@ -43,6 +45,7 @@ public class TrucksController {
         return "tables/trucks";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteTruck")
     public String deleteTruck(@RequestParam Integer id,
                                            Map<String, Object> model) {

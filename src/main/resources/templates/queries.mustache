@@ -95,7 +95,7 @@
             </div>
         </form>
         <div class="horizontal_line"></div>
-        <form method="get" action="/drivers">
+        <form method="get" action="/driversInfo">
             <div>
                 <button class="button">Перечень и общее число водителей</button>
                 <select name="area" style="height: 24px">
@@ -131,7 +131,7 @@
         <form method="get" action="/mileage">
             <div>
                 <button class="button">Пробег</button>
-                <select style="height: 24px" name="category">
+                <select style="height: 24px" name="category" required>
                     <option selected disabled>Категория</option>
                     <option>пассажирский</option>
                     <option>грузовой</option>
@@ -143,15 +143,15 @@
                     {{/transport}}
                 </select>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
-                    <input id="checkboxYear" type="checkbox" name="yearChecked" style="margin-right: 1%">
+                    <input type="radio" name="date" style="margin-right: 1%" value="year">
                     <input id="year" style="height: 18px" value="2015" type="number" step="1" min="2015" max="2020" name="year">
                 </div>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
-                    <input id="checkboxMonth" type="checkbox" name="monthChecked" style="margin-right: 1%">
+                    <input type="radio" name="date" style="margin-right: 1%" value="month">
                     <input id="month" style="width: 180px;" value="2015-01" type="month" min="2015-01" name="month">
                 </div>
                 <div style="margin-left: 45%; margin-bottom: 2%;">
-                    <input id="checkboxDay" type="checkbox" name="dayChecked" style="margin-right: 1%">
+                    <input type="radio" name="date" style="margin-right: 1%" value="day">
                     <input id="day" value="2015-01-01" type="date" min="2015-01-01" max="2020-12-31" name="day">
                     <button class="query_submit1">Submit</button>
                 </div>
@@ -198,7 +198,7 @@
             <div>
                 <button class="button">Данные о гаражном хозяйстве</button>
                 <select style="height: 24px" name="category">
-                    <option selected disabled value="null">Категория</option>
+                    <option selected disabled>Категория</option>
                     <option>пассажирский</option>
                     <option>грузовой</option>
                 </select>

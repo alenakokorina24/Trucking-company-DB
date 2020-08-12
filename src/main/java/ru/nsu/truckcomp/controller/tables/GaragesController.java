@@ -9,6 +9,7 @@ import ru.nsu.truckcomp.model.Garage;
 import ru.nsu.truckcomp.repository.AreaRepository;
 import ru.nsu.truckcomp.repository.GarageRepository;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -26,6 +27,7 @@ public class GaragesController {
         return "tables/garages";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addGarage")
     public String addGarage(@RequestParam Integer area,
                           Map<String, Object> model) {
@@ -35,8 +37,7 @@ public class GaragesController {
         return "tables/garages";
     }
 
-    // TODO: ошибка при попытке удаления записи, на которую существуют ссылки
-    // TODO: запилить каскадное удаление походу...
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteGarage")
     public String deleteGarage(@RequestParam Integer garageId,
                              Map<String, Object> model) {

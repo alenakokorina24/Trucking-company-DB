@@ -1,6 +1,8 @@
 package ru.nsu.truckcomp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "GARAGES")
@@ -12,6 +14,9 @@ public class Garage {
     @ManyToOne
     @JoinColumn(name = "area_id")
     private Area area;
+
+    @OneToMany(mappedBy = "garage", targetEntity = Transport.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Transport> transports = new HashSet<>();
 
     public Garage() {
 

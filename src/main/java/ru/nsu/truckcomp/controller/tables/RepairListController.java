@@ -10,6 +10,7 @@ import ru.nsu.truckcomp.repository.BrigadeRepository;
 import ru.nsu.truckcomp.repository.RepairListRepository;
 import ru.nsu.truckcomp.repository.TransportRepository;
 
+import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -32,6 +33,7 @@ public class RepairListController {
         return "tables/repairList";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addRepairList")
     public String addRepairList(@RequestParam Integer cost,
                                 @RequestParam Date received,
@@ -46,6 +48,7 @@ public class RepairListController {
         return "tables/repairList";
     }
 
+//    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteRepairList")
     public String deleteRepairList(@RequestParam Integer repId,
                                    Map<String, Object> model) {

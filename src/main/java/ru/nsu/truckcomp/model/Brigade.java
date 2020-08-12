@@ -22,6 +22,12 @@ public class Brigade {
     @OneToMany(mappedBy = "brigade", targetEntity = RepairList.class, cascade = CascadeType.ALL)
     private Set<RepairList> repairLists = new HashSet<>();
 
+    @OneToMany(mappedBy = "brigade", targetEntity = Driver.class, cascade = CascadeType.ALL)
+    private Set<Driver> drivers = new HashSet<>();
+
+    @OneToMany(mappedBy = "brigade", targetEntity = ServiceStaff.class, cascade = CascadeType.ALL)
+    private Set<ServiceStaff> serviceStaff = new HashSet<>();
+
     public Brigade() {
 
     }
