@@ -11,7 +11,6 @@ import java.util.Date;
 import java.util.stream.Stream;
 
 public interface PasswordResetTokenRepository extends CrudRepository<PasswordResetToken, Long> {
-
     PasswordResetToken findByToken(String token);
 
     PasswordResetToken findByUser(User user);

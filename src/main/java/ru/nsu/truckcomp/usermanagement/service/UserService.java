@@ -19,35 +19,29 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
-    public User registerNewUserAccount(final UserDto accountDto) {
-//        if (emailExists(accountDto.getEmail())) {
-//            throw new UserAlreadyExistException("There is an account with that email address: " + accountDto.getEmail());
-//        }
+    public User registerNewUserAccount(String email, String password) {
+        if (emailExists(email)) {
+            return null;
+        }
         User user = new User();
-
-        user.setPassword(accountDto.getPassword());
-        user.setEmail(accountDto.getEmail());
+        user.setEmail(email);
+        user.setPassword(password);
         user.setRoles(Collections.singletonList(roleRepository.findByName("ROLE_USER")));
-        return userRepository.save(user);
+        userRepository.save(user);
+        return user;
     }
 
     public void deleteUser(User user) {
         PasswordResetToken passwordToken = passwordTokenRepository.findByUser(user);
-
         if (passwordToken != null) {
             passwordTokenRepository.delete(passwordToken);
         }
-
         userRepository.delete(user);
     }
 
     public void createPasswordResetToken(User user, String token) {
         PasswordResetToken pwdToken = new PasswordResetToken(token, user);
         passwordTokenRepository.save(pwdToken);
-    }
-
-    public User findUserByEmail(final String email) {
-        return userRepository.findByEmail(email);
     }
 
     public PasswordResetToken getPasswordResetToken(final String token) {

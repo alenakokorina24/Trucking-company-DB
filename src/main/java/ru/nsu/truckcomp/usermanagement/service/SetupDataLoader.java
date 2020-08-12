@@ -15,9 +15,6 @@ import java.util.List;
 
 @Component
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
-
-    boolean alreadySetup = false;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -27,28 +24,29 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Autowired
     private PrivilegeRepository privilegeRepository;
 
+    boolean alreadySetup = false;
+
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
-
-        if (alreadySetup)
+        if (alreadySetup) {
             return;
-        Privilege readPrivilege
-                = createPrivilegeIfNotFound("READ_PRIVILEGE");
-        Privilege writePrivilege
-                = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+        }
+        Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
+        Privilege writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
 
-        List<Privilege> adminPrivileges = Arrays.asList(
-                readPrivilege, writePrivilege);
+        List<Privilege> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
         createRoleIfNotFound("ROLE_USER", Collections.singletonList(readPrivilege));
 
-        Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-        User user = new User();
-        user.setPassword("test");
-        user.setEmail("test@test.com");
-        user.setRoles(Collections.singletonList(adminRole));
-        userRepository.save(user);
+        if (userRepository.findByEmail("test@test.com") == null) {
+            Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+            User user = new User();
+            user.setPassword("test");
+            user.setEmail("test@test.com");
+            user.setRoles(Collections.singletonList(adminRole));
+            userRepository.save(user);
+        }
 
         alreadySetup = true;
     }

@@ -29,19 +29,16 @@ public class CustomUserDetailsService implements UserDetailsService {
                     " ", " ", true, true, true, true,
                     getAuthorities(Collections.singletonList(roleRepository.findByName("ROLE_USER"))));
         }
-
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(), user.getPassword(), true, true, true,
                 true, getAuthorities(user.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles) {
-
         return getGrantedAuthorities(getPrivileges(roles));
     }
 
     private List<String> getPrivileges(Collection<Role> roles) {
-
         List<String> privileges = new ArrayList<>();
         List<Privilege> collection = new ArrayList<>();
         for (Role role : roles) {

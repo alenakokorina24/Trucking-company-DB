@@ -33,10 +33,15 @@ public class RegistrationController {
     @Autowired
     private Environment env;
 
-    @PostMapping("/register/submit")
-    @ResponseBody
-    public void registerUserAccount(@Valid UserDto accountDto, HttpServletRequest request) {
-        userService.registerNewUserAccount(accountDto);
+    @PostMapping("/registerAccount")
+    public String registerUserAccount(@RequestParam String email,
+                                      @RequestParam String password,
+                                      Map<String, Object> model) {
+        if (userService.registerNewUserAccount(email, password) == null) {
+            model.put("message", "Account with that email already exists. Please try again.");
+            return "/error";
+        }
+        return "/login";
     }
 
     @PostMapping("/recovery")

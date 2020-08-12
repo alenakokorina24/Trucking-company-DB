@@ -43,19 +43,25 @@
 <div>
     <div class="registration">
         <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Registration</div>
-        <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="email" required="required" type="text" placeholder="email">
-        </div>
-        <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="password" required="required" type="password" placeholder="password">
-        </div>
-        <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="matchPassword" required="required" type="password" placeholder="repeat password">
-        </div>
-        <div>
-            <form method="get" action="/"><div><button class="button">Submit</button></div></form>
-            <form method="get" action="/"><div><button class="button">Cancel</button></div></form>
-        </div>
+        <form method="post" action="/registerAccount">
+            <div>
+                <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="email" required="required" type="text" placeholder="email">
+            </div>
+            <div>
+                <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="password" required="required" type="password" placeholder="password">
+            </div>
+            <div>
+                <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="matchPassword" required="required" type="password" placeholder="repeat password">
+            </div>
+                <div>
+                    <button class="button">Submit</button>
+                </div>
+        </form>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>
 

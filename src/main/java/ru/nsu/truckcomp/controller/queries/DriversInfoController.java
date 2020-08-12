@@ -29,7 +29,6 @@ public class DriversInfoController {
         } else {
             drivers = driverRepository.findAll();
         }
-
         model.put("drivers", drivers);
         model.put("driversNum", drivers.size());
         return "query/driversInfo";

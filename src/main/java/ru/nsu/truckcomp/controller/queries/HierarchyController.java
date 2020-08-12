@@ -15,8 +15,6 @@ public class HierarchyController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    private final String PADDING = "            ";
-
     private String getSubordinates(Employee employee, String padding) {
         String tree = "";
         if (employee.getBoss() == null) {
