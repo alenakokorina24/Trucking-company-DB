@@ -1,6 +1,7 @@
 package ru.nsu.truckcomp.controller.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,6 @@ import ru.nsu.truckcomp.repository.BrigadeRepository;
 import ru.nsu.truckcomp.repository.RepairListRepository;
 import ru.nsu.truckcomp.repository.TransportRepository;
 
-import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -33,7 +33,7 @@ public class RepairListController {
         return "tables/repairList";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addRepairList")
     public String addRepairList(@RequestParam Integer cost,
                                 @RequestParam Date received,
@@ -48,7 +48,7 @@ public class RepairListController {
         return "tables/repairList";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/deleteRepairList")
     public String deleteRepairList(@RequestParam Integer repId,
                                    Map<String, Object> model) {

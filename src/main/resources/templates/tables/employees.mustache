@@ -124,14 +124,19 @@
 <div>
 <div class="insert">
     <form method="post" action="/addEmployee">
+        <div>
         <label>
             <input required class="field" type="text" name="name">
             ФИО
         </label>
+        </div>
+        <div>
         <label>
             <input required class="field" type="text" name="position">
             Должность
         </label>
+        </div>
+        <div>
         <label>
             <select class="field" name="bossId">
                 <option value="0" selected>Нет</option>
@@ -141,6 +146,7 @@
             </select>
             Начальник
         </label>
+        </div>
         <button class="add_button" type="submit">Add</button>
     </form>
 </div>

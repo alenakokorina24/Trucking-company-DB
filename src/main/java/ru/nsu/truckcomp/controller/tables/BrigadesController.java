@@ -1,17 +1,16 @@
 package ru.nsu.truckcomp.controller.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.nsu.truckcomp.model.Area;
 import ru.nsu.truckcomp.model.Brigade;
 import ru.nsu.truckcomp.repository.AreaRepository;
 import ru.nsu.truckcomp.repository.BrigadeRepository;
 import ru.nsu.truckcomp.repository.EmployeeRepository;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -33,7 +32,7 @@ public class BrigadesController {
         return "tables/brigades";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addBrigade")
     public String addBrigade(@RequestParam Integer area,
                           @RequestParam Integer brigadier,
@@ -44,7 +43,7 @@ public class BrigadesController {
         return "tables/brigades";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/deleteBrigade")
     public String deleteBrigade(@RequestParam Integer brigadeId,
                              Map<String, Object> model) {

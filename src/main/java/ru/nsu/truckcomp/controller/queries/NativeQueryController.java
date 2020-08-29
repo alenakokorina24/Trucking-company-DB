@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.persistence.PersistenceException;
 import javax.persistence.Tuple;
 import javax.persistence.TupleElement;
 import java.util.HashSet;
@@ -32,6 +33,9 @@ public class NativeQueryController {
             List<Object[]> result = query1.list();
             model.put("columnNames", columns);
             model.put("objects", result.toArray());
+        } catch (PersistenceException e) {
+            model.put("message", "Error: " + e.getCause().getMessage() + ". Please try again.");
+            return "/error";
         }
         return "query/nativeQuery";
     }

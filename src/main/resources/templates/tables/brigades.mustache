@@ -124,6 +124,7 @@
 <div>
 <div class="insert">
     <form method="post" action="/addBrigade">
+        <div>
         <label>
             <select class="field" required name="area">
                 {{#areas}}
@@ -132,6 +133,8 @@
             </select>
             Участок
         </label>
+        </div>
+        <div>
         <label>
             <select class="field" required name="brigadier">
                 {{#employees}}
@@ -140,6 +143,7 @@
             </select>
             Бригадир
         </label>
+        </div>
         <button class="add_button" type="submit">Add</button>
     </form>
 </div>

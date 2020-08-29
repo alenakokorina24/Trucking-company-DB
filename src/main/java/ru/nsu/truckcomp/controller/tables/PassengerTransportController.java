@@ -1,6 +1,7 @@
 package ru.nsu.truckcomp.controller.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,6 @@ import ru.nsu.truckcomp.repository.GarageRepository;
 import ru.nsu.truckcomp.repository.PassTransportRepository;
 import ru.nsu.truckcomp.repository.TransportRepository;
 
-import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -32,7 +32,7 @@ public class PassengerTransportController {
         return "tables/passengerTransport";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addPassengerTransport")
     public String addPassengerTransport(@RequestParam String brand,
                                         @RequestParam Date acquirementDate,
@@ -47,7 +47,7 @@ public class PassengerTransportController {
         return "tables/passengerTransport";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/deletePassengerTransport")
     public String deletePassengerTransport(@RequestParam Integer id,
                              Map<String, Object> model) {

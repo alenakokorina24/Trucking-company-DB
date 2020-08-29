@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.nsu.truckcomp.model.Route;
 import ru.nsu.truckcomp.repository.RouteRepository;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -23,7 +22,7 @@ public class RoutesController {
         return "tables/routes";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addRoute")
     public String addArea(@RequestParam Integer length,
                           Map<String, Object> model) {
@@ -33,7 +32,7 @@ public class RoutesController {
         return "tables/routes";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/deleteRoute")
     public String deleteArea(@RequestParam Integer routeId,
                              Map<String, Object> model) {

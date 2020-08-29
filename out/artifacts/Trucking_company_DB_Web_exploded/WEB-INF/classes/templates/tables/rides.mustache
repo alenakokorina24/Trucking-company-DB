@@ -124,6 +124,7 @@
 <div>
 <div class="insert">
     <form method="post" action="/addRide">
+        <div>
         <label>
             <select class="field" required name="route">
                 {{#routes}}
@@ -132,6 +133,8 @@
             </select>
             Маршрут
         </label>
+        </div>
+        <div>
         <label>
             <select class="field" required name="transport">
                 {{#transport}}
@@ -140,10 +143,13 @@
             </select>
             Транспорт
         </label>
+        </div>
+        <div>
         <label>
             <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="date" value="2020-12-31">
             Дата
         </label>
+        </div>
         <button class="add_button" type="submit">Add</button>
     </form>
 </div>

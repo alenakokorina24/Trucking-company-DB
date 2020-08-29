@@ -1,6 +1,7 @@
 package ru.nsu.truckcomp.controller.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +11,6 @@ import ru.nsu.truckcomp.repository.RideRepository;
 import ru.nsu.truckcomp.repository.RouteRepository;
 import ru.nsu.truckcomp.repository.TransportRepository;
 
-import javax.annotation.security.RolesAllowed;
 import java.sql.Date;
 import java.util.Map;
 
@@ -33,7 +33,7 @@ public class RidesController {
         return "tables/rides";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addRide")
     public String addRide(@RequestParam Integer route,
                           @RequestParam Date date,
@@ -45,7 +45,7 @@ public class RidesController {
         return "tables/rides";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/deleteRide")
     public String deleteRide(@RequestParam Integer rideId,
                              Map<String, Object> model) {

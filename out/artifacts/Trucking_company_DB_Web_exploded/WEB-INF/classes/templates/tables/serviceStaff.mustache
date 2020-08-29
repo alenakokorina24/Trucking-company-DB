@@ -124,14 +124,19 @@
 </div>
 <div class="insert">
     <form method="post" action="/addServiceStaff">
+        <div>
         <label>
             <input required class="field" type="text" name="name">
             ФИО
         </label>
+        </div>
+        <div>
         <label>
             <input required class="field" type="text" name="position">
             Должность
         </label>
+        </div>
+        <div>
         <label>
             <select required class="field" name="brigade">
                 {{#brigades}}
@@ -140,6 +145,8 @@
             </select>
             Бригада
         </label>
+        </div>
+        <div>
         <label>
             <select class="field" name="boss">
                 {{#employees}}
@@ -148,6 +155,7 @@
             </select>
             Начальник
         </label>
+        </div>
         <button class="add_button" type="submit">Add</button>
     </form>
 </div>

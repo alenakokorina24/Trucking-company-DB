@@ -1,6 +1,7 @@
 package ru.nsu.truckcomp.controller.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +10,6 @@ import ru.nsu.truckcomp.model.Area;
 import ru.nsu.truckcomp.repository.AreaRepository;
 import ru.nsu.truckcomp.repository.EmployeeRepository;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.Map;
 
 @Controller
@@ -27,7 +27,7 @@ public class AreasController {
         return "tables/areas";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addArea")
     public String addArea(@RequestParam Integer chief,
                           Map<String, Object> model) {
@@ -37,7 +37,7 @@ public class AreasController {
         return "tables/areas";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @Secured("ROLE_ADMIN")
     @PostMapping("/deleteArea")
     public String deleteArea(@RequestParam Integer areaId,
                           Map<String, Object> model) {
