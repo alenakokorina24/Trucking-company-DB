@@ -4,19 +4,60 @@
     <meta charset="UTF-8">
     <title>Trucking company database manager</title>
     <style type="text/css">
-        body {
+        .header {
             background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+            float: top;
+        }
+        .error {
+            background-color: #303030;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
             font-size: 400%;
-            margin: 20%;
+            margin: 10%;
+        }
+        body {
+            background-color: #303030;
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            background-color: #EEEEEE;
+            height: 70px;
+        }
+        .logout_button {
+            background-color: #EEEEEE;
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #303030;
+            font-size: 24px;
+            float: right;
+            margin: 20px;
+        }
+        .logout_button:hover {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+<div class="top">
+    <form method="get" action="/logout"><button class="logout_button">LOGOUT</button></form>
+</div>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div class="error">
     <b>
         {{message}}
     </b>
+</div>
 </body>
 </html>

@@ -50,9 +50,32 @@
         .query_button:hover {
             cursor: pointer;
         }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .top {
+            background-color: #EEEEEE;
+            height: 70px;
+        }
+        .logout_button {
+            background-color: #EEEEEE;
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #303030;
+            font-size: 24px;
+            float: right;
+            margin: 20px;
+        }
+        .logout_button:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+<div class="top">
+    <form method="get" action="/logout"><button class="logout_button">LOGOUT</button></form>
+</div>
 <div class="header">
     <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
         Trucking company database manager
