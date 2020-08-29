@@ -4,117 +4,12 @@
     <meta charset="UTF-8">
     <title>Trucking company database manager</title>
     <meta http-equiv="Content-Type" content="text/html; charseet=UTF-8" />
-    <style type="text/css">
-        .header {
-            background-color: #E5C821;
-            padding: 15px;
-            text-align: center;
-        }
-        .caption {
-            font-size: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #303030;
-            text-align: left;
-            background-color: white;
-            padding: 25px;
-        }
-        th, td {
-            height: 30px;
-            font-family: Arial, Helvetica, sans-serif;
-            border-style: solid;
-            border-color: #A0A0A0;
-            border-width: 1px;
-        }
-        .button_td {
-            height: 30px;
-            width: 100px;
-            border-style: solid;
-            border-color: white;
-            border-width: 1px;
-            background-color: #A0A0A0;
-        }
-        .button_th {
-            height: 30px;
-            width: 100px;
-            border-style: solid;
-            border-color: #A0A0A0;
-            border-width: 1px;
-        }
-        table {
-            width: 100%;
-            font-size: 14px;
-            border-radius: 15px;
-            border-collapse: collapse;
-            text-align: center;
-        }
-        .button {
-            border: none;
-            background-color: #A0A0A0;
-            font-weight: bold;
-            color: white;
-        }
-        .button:hover {
-            cursor: pointer;
-        }
-        .insert {
-            height: 500px;
-            background-color: white;
-            border-color: black;
-            border-width: 1px;
-            border-style: solid;
-            float: left;
-            width: 19%;
-            margin: 1%;
-            position: relative;
-        }
-        .field {
-            width: 45%;
-            height: 24px;
-            margin-top: 30px;
-            margin-left: 1%;
-        }
-        .add_button {
-            border-color: #303030;
-            border-width: 1px;
-            background-color: white;
-            color: #303030;
-            font-size: 20px;
-            margin-left: 30%;
-            height: 30px;
-            width: 30%;
-            position: absolute;
-            bottom: 10px;
-        }
-        .add_button:hover {
-            cursor: pointer;
-        }
-        .back {
-            background-color: #E5C821;
-            padding: 15px;
-        }
-        .back_button {
-            background-color: #E5C821;
-            border-color: white;
-            border-radius: 4px;
-            border-style: solid;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .back_button:hover {
-            cursor: pointer;
-        }
-        label {
-            color: #303030;
-            font-family: Arial, Helvetica, sans-serif;
-            margin-left: 1%;
-        }
-    </style>
+    <link href="/static/table.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div class="back">
+<div class="top">
     <form method="get" action="/menu"><button class="back_button">BACK</button></form>
+    <form method="get" action="/logout"><button class="logout_button">LOGOUT</button></form>
 </div>
 <div class="header">
     <a style="text-decoration:none" href="/menu">
