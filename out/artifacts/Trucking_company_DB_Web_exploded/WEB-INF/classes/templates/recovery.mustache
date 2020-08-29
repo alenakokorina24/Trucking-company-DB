@@ -9,7 +9,7 @@
             padding: 15px;
             text-align: center;
         }
-        .authorization {
+        .pwdRecovery {
             margin-left: 40%;
             margin-top: 5%;
             text-align: center;
@@ -41,27 +41,25 @@
     </h2>
 </div>
 <div>
-    <div class="authorization">
-        <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Authorization</div>
-        <form method="post" action="/login">
-        <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" required type="text" placeholder="login" name="username">
-        </div>
-        <div>
-            <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" required type="password" placeholder="password" name="password">
-        </div>
-            <div>
-                <button class="button">Sign In</button>
-            </div>
-        </form>
-            <form method="get" action="/recovery">
+    <div class="pwdRecovery">
+        <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Request password recovery</div>
+            <form method="get" action="/passwordRecovery">
                 <div>
-                    <button class="button">Forgot password?</button>
+                    <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" required type="text" placeholder="email" name="email">
+                </div>
+                <div>
+                    <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" required type="password" placeholder="new password" name="password">
+                </div>
+                <div>
+                    <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" required type="password" placeholder="repeat new password" name="matchPassword">
+                </div>
+                <div>
+                    <button class="button">Reset password</button>
                 </div>
             </form>
-            <form method="get" action="/register">
+            <form method="get" action="/">
                 <div>
-                    <button class="button">Register</button>
+                    <button class="button">Cancel</button>
                 </div>
             </form>
     </div>

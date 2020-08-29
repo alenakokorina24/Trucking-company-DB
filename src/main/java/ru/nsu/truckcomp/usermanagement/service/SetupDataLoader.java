@@ -3,6 +3,7 @@ package ru.nsu.truckcomp.usermanagement.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.usermanagement.entity.*;
@@ -24,6 +25,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Autowired
     private PrivilegeRepository privilegeRepository;
 
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
     boolean alreadySetup = false;
 
     @Override
@@ -42,7 +46,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         if (userRepository.findByEmail("test@test.com") == null) {
             Role adminRole = roleRepository.findByName("ROLE_ADMIN");
             User user = new User();
-            user.setPassword("test");
+            user.setPassword(bCryptPasswordEncoder.encode("test"));
             user.setEmail("test@test.com");
             user.setRoles(Collections.singletonList(adminRole));
             userRepository.save(user);

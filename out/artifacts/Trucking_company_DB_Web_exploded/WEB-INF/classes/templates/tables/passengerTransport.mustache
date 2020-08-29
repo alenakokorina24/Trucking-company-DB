@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucking company database manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charseet=UTF-8" />
+    <style type="text/css">
+        .header {
+            background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+        }
+        .caption {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #303030;
+            text-align: left;
+            background-color: white;
+            padding: 25px;
+        }
+        th, td {
+            height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            border-style: solid;
+            border-color: #A0A0A0;
+            border-width: 1px;
+        }
+        .button_td {
+            height: 30px;
+            width: 100px;
+            border-style: solid;
+            border-color: white;
+            border-width: 1px;
+            background-color: #A0A0A0;
+        }
+        .button_th {
+            height: 30px;
+            width: 100px;
+            border-style: solid;
+            border-color: #A0A0A0;
+            border-width: 1px;
+        }
+        table {
+            width: 100%;
+            font-size: 14px;
+            border-radius: 15px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .button {
+            border: none;
+            background-color: #A0A0A0;
+            font-weight: bold;
+            color: white;
+        }
+        .button:hover {
+            cursor: pointer;
+        }
+        .insert {
+            height: 500px;
+            background-color: white;
+            border-color: black;
+            border-width: 1px;
+            border-style: solid;
+            float: left;
+            width: 19%;
+            margin: 1%;
+            position: relative;
+        }
+        .field {
+            width: 45%;
+            height: 24px;
+            margin-top: 30px;
+            margin-left: 1%;
+        }
+        .add_button {
+            border-color: #303030;
+            border-width: 1px;
+            background-color: white;
+            color: #303030;
+            font-size: 20px;
+            margin-left: 30%;
+            height: 30px;
+            width: 30%;
+            position: absolute;
+            bottom: 10px;
+        }
+        .add_button:hover {
+            cursor: pointer;
+        }
+        .back {
+            background-color: #E5C821;
+            padding: 15px;
+        }
+        .back_button {
+            background-color: #E5C821;
+            border-color: white;
+            border-radius: 4px;
+            border-style: solid;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .back_button:hover {
+            cursor: pointer;
+        }
+        label {
+            color: #303030;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 1%;
+        }
+    </style>
+</head>
+<body>
+<div class="back">
+    <form method="get" action="/menu"><button class="back_button">BACK</button></form>
+</div>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div>
+<div class="insert">
+    <form method="post" action="/addPassengerTransport">
+        <div>
+        <label>
+            <select class="field" required name="brand">
+                <option>Газ</option>
+                <option>Ваз</option>
+                <option>Пежо</option>
+                <option>Тойота</option>
+            </select>
+            Марка
+        </label>
+        <label>
+            <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="acquirementDate" value="2020-12-31">
+            Дата приобретения
+        </label>
+        <label>
+            <input required class="field" type="date" min="2015-01-01" max="2020-12-31" name="decommissionDate" value="2020-12-31">
+            Дата списания
+        </label>
+        <label>
+            <select class="field" required name="garage">
+                {{#garages}}
+                    <option value={{garageId}}>{{garageId}}</option>
+                {{/garages}}
+            </select>
+            Гараж
+        </label>
+        </div>
+        <div>
+        <label>
+            <input required class="field" type="number" min="1" max="40" step="1" value="1" name="capacity">
+            Вместимость
+        </label>
+        <label>
+            <select class="field" required name="type">
+                <option>автобус</option>
+                <option>маршрутное такси</option>
+                <option>такси</option>
+            </select>
+            Тип
+        </label>
+        </div>
+        <button class="add_button" type="submit">Add</button>
+    </form>
+</div>
+<div style="float: left; width: 78%;">
+    <table>
+        <caption class="caption"><b>ПАССАЖИРСКИЙ ТРАНСПОРТ</b></caption>
+        <tr>
+            <th>ID</th>
+            <th>Марка</th>
+            <th>Дата приобретения</th>
+            <th>Дата списания</th>
+            <th>Гаражное хозяйство</th>
+            <th>Вместимость</th>
+            <th>Тип</th>
+            <th class="button_th"></th>
+            <th class="button_th"></th>
+        </tr>
+        {{#passengerTransport}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{brand}}</td>
+                <td>{{acquirementDate}}</td>
+                <td>{{decommissionDate}}</td>
+                <td>{{garage.garageId}}</td>
+                <td>{{capacity}}</td>
+                <td>{{type}}</td>
+                <td class="button_td">
+                    <form>
+                        <button class="button">EDIT</button>
+                    </form>
+                </td>
+                <td class="button_td">
+                    <form method="post" action="/deletePassengerTransport">
+                        <button name="id" value={{id}} type="submit" class="button">DELETE</button>
+                    </form>
+                </td>
+            </tr>
+        {{/passengerTransport}}
+    </table>
+</div>
+</div>
+</body>
+</html>

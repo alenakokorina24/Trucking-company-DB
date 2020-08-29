@@ -14,7 +14,7 @@ public class AuthorizationController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/authorization")
+    //@GetMapping("/authorization")
     public String registerUserAccount(@RequestParam String email,
                                       @RequestParam String password,
                                       Map<String, Object> model) {
@@ -26,6 +26,7 @@ public class AuthorizationController {
             }
             return "/menu";
         }
+
         model.put("message", "Email " + email + " is not registered.");
         return "/error";
     }

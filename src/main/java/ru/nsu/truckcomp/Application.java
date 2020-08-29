@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class Application implements WebMvcConfigurer {
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
@@ -23,5 +22,4 @@ public class Application implements WebMvcConfigurer {
         SpringApplication.run(Application.class, args);
 
     }
-
 }

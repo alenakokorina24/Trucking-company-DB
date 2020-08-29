@@ -1,6 +1,7 @@
 package ru.nsu.truckcomp.usermanagement.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.usermanagement.entity.*;
@@ -19,13 +20,16 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public User registerNewUserAccount(String email, String password) {
         if (emailExists(email)) {
             return null;
         }
         User user = new User();
         user.setEmail(email);
-        user.setPassword(password);
+        user.setPassword(bCryptPasswordEncoder.encode(password));
         user.setRoles(Collections.singletonList(roleRepository.findByName("ROLE_USER")));
         userRepository.save(user);
         return user;

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucking company database manager</title>
+    <style type="text/css">
+        .header {
+            background-color: #E5C821;
+            padding: 15px;
+            text-align: center;
+        }
+        .registration {
+            margin-left: 40%;
+            margin-top: 5%;
+            text-align: center;
+            width: 20%;
+            height: 37%;
+            position: fixed;
+            background-color: #C4C4C4;
+            border-radius: 20px;
+        }
+        .button {
+            background-color: #A0A0A0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 80%;
+            height: 30px;
+            margin-bottom: 2%;
+        }
+        .button:hover {
+            background-color: #7F7F7F;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: 400%;">
+        Trucking company database manager
+    </h2>
+</div>
+<div>
+    <div class="registration">
+        <div style="color: white; margin-top: 18%; margin-bottom: 5%; font-family: Arial, Helvetica, sans-serif;">Registration</div>
+        <form method="post" action="/registerAccount">
+            <div>
+                <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="email" required type="text" placeholder="email">
+            </div>
+            <div>
+                <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="password" required type="password" placeholder="password">
+            </div>
+            <div>
+                <input style="margin-bottom: 3%; width: 75%; height: 20px; border: none" name="matchPassword" required type="password" placeholder="repeat password">
+            </div>
+                <div>
+                    <button class="button">Submit</button>
+                </div>
+        </form>
+        <form method="get" action="/">
+            <div>
+                <button class="button">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function register(event){
+        if($("#password").val() !== $("#matchPassword").val()){
+            return;
+        }
+        let formData= $('form').serialize();
+    }
+
+</script>
+</body>
+</html>

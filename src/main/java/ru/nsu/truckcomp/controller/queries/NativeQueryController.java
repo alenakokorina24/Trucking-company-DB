@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.Tuple;
 import javax.persistence.TupleElement;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class NativeQueryController {
@@ -20,7 +21,7 @@ public class NativeQueryController {
         try (Session session = DAO.getSession()) {
             Query query = session.createNativeQuery(queryText, Tuple.class);
             List<Tuple> resultList = query.getResultList();
-            List<String> columns = new ArrayList<>();
+            Set<String> columns = new HashSet<>();
             for (Tuple row : resultList) {
                 List<TupleElement<?>> elements = row.getElements();
                 for (TupleElement<?> element : elements) {

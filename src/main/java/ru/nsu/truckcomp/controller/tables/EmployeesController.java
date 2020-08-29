@@ -1,6 +1,7 @@
 package ru.nsu.truckcomp.controller.tables;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.nsu.truckcomp.model.Employee;
@@ -20,6 +21,7 @@ public class EmployeesController {
         return "tables/employees";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/addEmployee")
     public String addEmployee(@RequestParam String name,
                               @RequestParam String position,

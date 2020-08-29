@@ -32,7 +32,7 @@ public class DriversController {
         return "tables/drivers";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/addDriver")
     public String addDriver(@RequestParam String name,
                             @RequestParam Integer brigade,
@@ -48,7 +48,7 @@ public class DriversController {
         return "tables/drivers";
     }
 
-//    @RolesAllowed("ROLE_ADMIN")
+    @RolesAllowed("ROLE_ADMIN")
     @PostMapping("/deleteDriver")
     public String deleteDriver(@RequestParam Integer empId,
                                Map<String, Object> model) {
