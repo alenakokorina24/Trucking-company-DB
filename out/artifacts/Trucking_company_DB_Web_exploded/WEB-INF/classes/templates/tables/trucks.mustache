@@ -119,6 +119,10 @@
             </tr>
         {{/trucks}}
     </table>
+    <div>
+        {{#hasPrev}}<a class="pages" href="/trucks?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a class="pages" href="/trucks?page={{next}}">NEXT</a>{{/hasNext}}
+    </div>
 </div>
 </div>
 </body>

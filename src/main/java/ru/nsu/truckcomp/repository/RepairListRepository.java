@@ -1,5 +1,6 @@
 package ru.nsu.truckcomp.repository;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import ru.nsu.truckcomp.model.RepairList;
@@ -43,7 +44,7 @@ public interface RepairListRepository extends CrudRepository<RepairList, Integer
                 "WHERE t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3")
     List<RepairList> getTruckRepairsWithBrand(String brand, Date start, Date end);
 
-    List<RepairList> findAll();
+    List<RepairList> findAll(Pageable pageable);
 
     List<RepairList> findBySparePartAndReceivedAfterAndReturnedBefore(String sparePart, Date start, Date end);
 

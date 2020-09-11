@@ -1,5 +1,6 @@
 package ru.nsu.truckcomp.repository;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.Transport;
@@ -18,4 +19,6 @@ public interface TransportRepository extends TransportBaseRepository<Transport> 
 
     @Query(value = "SELECT new ru.nsu.truckcomp.model.TransportArea(t.id, t.brand, t.garage, g.area) FROM Transport t INNER JOIN Garage g ON t.garage.garageId=g.garageId")
     List<TransportArea> getTransportDistribution();
+
+    List<Transport> findAll(Pageable pageable);
 }

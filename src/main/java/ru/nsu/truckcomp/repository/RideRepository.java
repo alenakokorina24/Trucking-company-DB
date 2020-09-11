@@ -1,5 +1,6 @@
 package ru.nsu.truckcomp.repository;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import ru.nsu.truckcomp.model.Mileage;
@@ -74,4 +75,6 @@ public interface RideRepository extends CrudRepository<Ride, Integer> {
             "WHERE YEAR(ri.date) = ?1 " +
             "GROUP BY ri.transport.id")
     List<Mileage> getTruckYearMileage(int year);
+
+    List<Ride> findAll(Pageable pageable);
 }

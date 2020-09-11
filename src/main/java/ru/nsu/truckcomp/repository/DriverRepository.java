@@ -1,5 +1,6 @@
 package ru.nsu.truckcomp.repository;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.Driver;
 
@@ -13,7 +14,7 @@ public interface DriverRepository extends EmployeeBaseRepository<Driver> {
 
     List<Driver> findByTransportId(int transportId);
 
-    List<Driver> findAll();
+    List<Driver> findAll(Pageable pageable);
 
     Driver findByEmpId(int id);
 }

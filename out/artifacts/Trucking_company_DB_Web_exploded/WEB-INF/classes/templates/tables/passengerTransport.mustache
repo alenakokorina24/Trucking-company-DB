@@ -100,6 +100,10 @@
             </tr>
         {{/passengerTransport}}
     </table>
+    <div>
+        {{#hasPrev}}<a class="pages" href="/passengerTransport?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a class="pages" href="/passengerTransport?page={{next}}">NEXT</a>{{/hasNext}}
+    </div>
 </div>
 </div>
 </body>

@@ -73,6 +73,10 @@
             </tr>
         {{/brigades}}
     </table>
+    <div>
+        {{#hasPrev}}<a class="pages" href="/brigades?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a class="pages" href="/brigades?page={{next}}">NEXT</a>{{/hasNext}}
+    </div>
 </div>
 </div>
 </body>

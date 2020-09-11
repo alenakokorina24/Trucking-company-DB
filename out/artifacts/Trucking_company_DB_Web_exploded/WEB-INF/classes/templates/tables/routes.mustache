@@ -55,6 +55,10 @@
             </tr>
         {{/routes}}
     </table>
+    <div>
+        {{#hasPrev}}<a class="pages" href="/routes?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a class="pages" href="/routes?page={{next}}">NEXT</a>{{/hasNext}}
+    </div>
 </div>
 </div>
 </body>

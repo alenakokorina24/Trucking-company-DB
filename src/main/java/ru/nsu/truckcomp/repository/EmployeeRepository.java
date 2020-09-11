@@ -1,5 +1,6 @@
 package ru.nsu.truckcomp.repository;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 import ru.nsu.truckcomp.model.Employee;
@@ -13,5 +14,7 @@ public interface EmployeeRepository extends EmployeeBaseRepository<Employee> {
     List<Employee> findByBoss_EmpId(int is);
 
     List<Employee> findByBossNull();
+
+    List<Employee> findAll(Pageable pageable);
 }
 
