@@ -8,6 +8,9 @@ import ru.nsu.truckcomp.model.TransportArea;
 import java.sql.Date;
 import java.util.List;
 
+// перед началом исполнения методов начинается транзакция,
+// после исполнения метода транзакция коммитится,
+// в случае RuntimeException - откатывается
 @Transactional
 public interface TransportRepository extends TransportBaseRepository<Transport> {
     // ищем транспорт, который был приобретён либо списан в указанный период

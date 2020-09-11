@@ -14,8 +14,10 @@ import ru.nsu.truckcomp.repository.TransportRepository;
 import java.sql.Date;
 import java.util.Map;
 
+// контроллер Spring MVC
 @Controller
 public class PassengerTransportController {
+    // спринг сам найдёт нужный бин и подставит в значение поля
     @Autowired
     private PassTransportRepository passTransportRepository;
 
