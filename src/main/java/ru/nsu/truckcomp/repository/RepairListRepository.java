@@ -16,55 +16,55 @@ public interface RepairListRepository extends CrudRepository<RepairList, Integer
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_SERVICE_STAFF +
             "WHERE s.empId = ?1 AND r.received >= ?2 AND r.returned <= ?3")
-    List<RepairList> getWork(int emp, Date start, Date end);
+    List<RepairList> getWork(int emp, Date start, Date end, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_SERVICE_STAFF +
             "WHERE s.empId = ?1 AND r.transport.id = ?2 AND r.received >= ?3 AND r.returned <= ?4")
-    List<RepairList> getWork(int emp, int t, Date start, Date end);
+    List<RepairList> getWork(int emp, int t, Date start, Date end, Pageable pageable);
 
     RepairList findByRepId(int id);
 
-    List<RepairList> findByTransport_IdAndReceivedAfterAndReturnedBefore(int id, Date start, Date end);
+    List<RepairList> findByTransport_IdAndReceivedAfterAndReturnedBefore(int id, Date start, Date end, Pageable pageable);
 
-    List<RepairList> findByTransport_BrandAndReceivedAfterAndReturnedBefore(String brand, Date start, Date end);
+    List<RepairList> findByTransport_BrandAndReceivedAfterAndReturnedBefore(String brand, Date start, Date end, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_PASSENGER_TRANSPORT +
                 "WHERE r.received >= ?1 AND r.returned <= ?2")
-    List<RepairList> getPassengerTransportRepairs(Date start, Date end);
+    List<RepairList> getPassengerTransportRepairs(Date start, Date end, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_TRUCK +
             "WHERE r.received >= ?1 AND r.returned <= ?2")
-    List<RepairList> getTruckRepairs(Date start, Date end);
+    List<RepairList> getTruckRepairs(Date start, Date end, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_PASSENGER_TRANSPORT +
                 "WHERE t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3")
-    List<RepairList> getPassengerTransportRepairsWithBrand(String brand, Date start, Date end);
+    List<RepairList> getPassengerTransportRepairsWithBrand(String brand, Date start, Date end, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_TRUCK +
                 "WHERE t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3")
-    List<RepairList> getTruckRepairsWithBrand(String brand, Date start, Date end);
+    List<RepairList> getTruckRepairsWithBrand(String brand, Date start, Date end, Pageable pageable);
 
     List<RepairList> findAll(Pageable pageable);
 
-    List<RepairList> findBySparePartAndReceivedAfterAndReturnedBefore(String sparePart, Date start, Date end);
+    List<RepairList> findBySparePartAndReceivedAfterAndReturnedBefore(String sparePart, Date start, Date end, Pageable pageable);
 
-    List<RepairList> findBySparePartAndTransport_IdAndReceivedAfterAndReturnedBefore(String sparePart, int id, Date start, Date end);
+    List<RepairList> findBySparePartAndTransport_IdAndReceivedAfterAndReturnedBefore(String sparePart, int id, Date start, Date end, Pageable pageable);
 
-    List<RepairList> findBySparePartAndTransport_BrandAndReceivedAfterAndReturnedBefore(String sparePart, String Brand, Date start, Date end);
+    List<RepairList> findBySparePartAndTransport_BrandAndReceivedAfterAndReturnedBefore(String sparePart, String Brand, Date start, Date end, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_PASSENGER_TRANSPORT +
                 "WHERE t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3 AND r.sparePart = ?4")
-    List<RepairList> getPassengerTransportSparePartsWithBrand(String brand, Date start, Date end, String sparePart);
+    List<RepairList> getPassengerTransportSparePartsWithBrand(String brand, Date start, Date end, String sparePart, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_TRUCK +
             "WHERE t.brand = ?1 AND r.received >= ?2 AND r.returned <= ?3 AND r.sparePart = ?4")
-    List<RepairList> getTruckSparePartsWithBrand(String brand, Date start, Date end, String sparePart);
+    List<RepairList> getTruckSparePartsWithBrand(String brand, Date start, Date end, String sparePart, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_PASSENGER_TRANSPORT +
             "WHERE r.received >= ?1 AND r.returned <= ?2 AND r.sparePart = ?3")
-    List<RepairList> getPassengerTransportSpareParts(Date start, Date end, String sparePart);
+    List<RepairList> getPassengerTransportSpareParts(Date start, Date end, String sparePart, Pageable pageable);
 
     @Query(value = SELECT_REPAIR_LIST + REPAIR_LIST_JOIN_TRUCK +
             "WHERE r.received >= ?1 AND r.returned <= ?2 AND r.sparePart = ?3")
-    List<RepairList> getTruckSpareParts(Date start, Date end, String sparePart);
+    List<RepairList> getTruckSpareParts(Date start, Date end, String sparePart, Pageable pageable);
 }

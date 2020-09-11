@@ -37,7 +37,7 @@ public class PassengerTransportController {
         long count = passTransportRepository.count();
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = (pageNumber * ROWS_PER_PAGE) < count;
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("driverId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("id").ascending());
         model.put("passengerTransport", passTransportRepository.findAll(sorted));
         model.put("garages", garageRepository.findAll());
         model.put("hasPrev", hasPrev);

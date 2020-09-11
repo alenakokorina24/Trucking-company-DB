@@ -27,7 +27,7 @@ public class RoutesController {
         long count = routeRepository.count();
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = (pageNumber * ROWS_PER_PAGE) < count;
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("driverId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("routeId").ascending());
         model.put("routes", routeRepository.findAll(sorted));
         model.put("hasPrev", hasPrev);
         model.put("prev", pageNumber - 1);

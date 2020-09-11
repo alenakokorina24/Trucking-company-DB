@@ -25,7 +25,7 @@ public class EmployeesController {
         long count = employeeRepository.count();
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = (pageNumber * ROWS_PER_PAGE) < count;
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("driverId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("empId").ascending());
         model.put("employees", employeeRepository.findAll(sorted));
         model.put("hasPrev", hasPrev);
         model.put("prev", pageNumber - 1);

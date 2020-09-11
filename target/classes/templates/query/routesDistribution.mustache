@@ -33,6 +33,10 @@
             </tr>
         {{/routes}}
     </table>
+    <div>
+        {{#hasPrev}}<a class="pages" href="/routesDistribution?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a class="pages" href="/routesDistribution?page={{next}}">NEXT</a>{{/hasNext}}
+    </div>
 </div>
 </body>
 </html>

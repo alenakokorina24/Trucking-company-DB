@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ru.nsu.truckcomp.model.Brigade;
 import ru.nsu.truckcomp.model.Driver;
 import ru.nsu.truckcomp.repository.*;
 
@@ -34,7 +35,7 @@ public class DriversController {
         long count = driverRepository.count();
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = (pageNumber * ROWS_PER_PAGE) < count;
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("driverId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("empId").ascending());
         model.put("drivers", driverRepository.findAll(sorted));
         model.put("brigades", brigadeRepository.findAll());
         model.put("transport", transportRepository.findAll());
@@ -51,12 +52,12 @@ public class DriversController {
     public String addDriver(@RequestParam String name,
                             @RequestParam Integer brigade,
                             @RequestParam Integer transport,
-                            @RequestParam Integer boss,
                             Map<String, Object> model) {
+        Brigade empBrigade = brigadeRepository.findByBrigadeId(brigade);
         Driver driver = new Driver(name, "водитель",
                 transportRepository.findById(transport).get(),
-                brigadeRepository.findByBrigadeId(brigade),
-                employeeRepository.findByEmpId(boss));
+                empBrigade,
+                employeeRepository.findByEmpId(empBrigade.getBrigadier().getEmpId()));
         driverRepository.save(driver);
         getDrivers(model, 1);
         return "tables/drivers";

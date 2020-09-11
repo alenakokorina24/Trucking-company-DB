@@ -36,7 +36,7 @@ public class RidesController {
         long count = rideRepository.count();
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = (pageNumber * ROWS_PER_PAGE) < count;
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("driverId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("rideId").ascending());
         model.put("rides", rideRepository.findAll(sorted));
         model.put("routes", routeRepository.findAll());
         model.put("transport", transportRepository.findAll());

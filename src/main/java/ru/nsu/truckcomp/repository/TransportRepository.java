@@ -15,10 +15,10 @@ import java.util.List;
 @Transactional
 public interface TransportRepository extends TransportBaseRepository<Transport> {
     // ищем транспорт, который был приобретён либо списан в указанный период
-    Iterable<Transport> findByAcquirementDateAfterAndAcquirementDateBeforeOrDecommissionDateAfterAndDecommissionDateBefore(Date start1, Date end1, Date start2, Date end2);
+    List<Transport> findByAcquirementDateAfterAndAcquirementDateBeforeOrDecommissionDateAfterAndDecommissionDateBefore(Date start1, Date end1, Date start2, Date end2, Pageable pageable);
 
     @Query(value = "SELECT new ru.nsu.truckcomp.model.TransportArea(t.id, t.brand, t.garage, g.area) FROM Transport t INNER JOIN Garage g ON t.garage.garageId=g.garageId")
-    List<TransportArea> getTransportDistribution();
+    List<TransportArea> getTransportDistribution(Pageable pageable);
 
     List<Transport> findAll(Pageable pageable);
 }

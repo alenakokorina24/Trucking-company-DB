@@ -41,6 +41,10 @@
             </tr>
         {{/repairs}}
     </table>
+    <div>
+        {{#hasPrev}}<a class="pages" href="/spareParts?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+        {{#hasNext}}<a class="pages" href="/spareParts?page={{next}}">NEXT</a>{{/hasNext}}
+    </div>
 </div>
 </body>
 </html>

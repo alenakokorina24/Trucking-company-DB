@@ -12,7 +12,7 @@ import java.util.List;
 public interface TruckRepository extends TransportBaseRepository<Truck> {
     @Query(value = "SELECT new ru.nsu.truckcomp.model.Garage(g.area) " +
             "FROM Garage g INNER JOIN Truck t ON g.garageId=t.garage.garageId ")
-    List<Garage> getGarages();
+    List<Garage> getGarages(Pageable pageable);
 
     List<Truck> findAll(Pageable pageable);
 }

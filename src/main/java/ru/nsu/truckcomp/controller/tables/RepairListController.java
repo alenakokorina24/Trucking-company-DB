@@ -36,7 +36,7 @@ public class RepairListController {
         long count = repairListRepository.count();
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = (pageNumber * ROWS_PER_PAGE) < count;
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("driverId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("repId").ascending());
         model.put("repairList", repairListRepository.findAll(sorted));
         model.put("brigades", brigadeRepository.findAll());
         model.put("transport", transportRepository.findAll());
