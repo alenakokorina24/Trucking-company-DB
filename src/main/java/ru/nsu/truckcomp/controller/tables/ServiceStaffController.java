@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ru.nsu.truckcomp.model.Brigade;
 import ru.nsu.truckcomp.model.ServiceStaff;
 import ru.nsu.truckcomp.repository.*;
 
@@ -47,11 +48,11 @@ public class ServiceStaffController {
     public String addServiceStaff(@RequestParam String name,
                                   @RequestParam String position,
                                   @RequestParam Integer brigade,
-                                  @RequestParam Integer boss,
                                   Map<String, Object> model) {
+        Brigade empBrigade = brigadeRepository.findByBrigadeId(brigade);
         ServiceStaff serviceStaff = new ServiceStaff(name, position,
-                brigadeRepository.findByBrigadeId(brigade),
-                employeeRepository.findByEmpId(boss));
+                empBrigade,
+                employeeRepository.findByEmpId(empBrigade.getBrigadier().getEmpId()));
         serviceStaffRepository.save(serviceStaff);
         getServiceStaff(model, 1);
         return "tables/serviceStaff";

@@ -21,3 +21,4 @@ public class DAO {
         return sessionFactory.openSession();
     }
 }
+
