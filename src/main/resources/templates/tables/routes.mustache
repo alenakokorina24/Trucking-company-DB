@@ -31,7 +31,13 @@
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>МАРШРУТЫ</b></caption>
+        <caption class="caption">
+            <b>
+                МАРШРУТЫ
+                {{#hasPrev}}<a class="pages" href="/routes?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/routes?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>Длина</th>
@@ -55,10 +61,6 @@
             </tr>
         {{/routes}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/routes?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/routes?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </div>
 </body>

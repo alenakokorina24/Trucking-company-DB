@@ -83,7 +83,13 @@
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>ГРУЗОВОЙ ТРАНСПОРТ</b></caption>
+        <caption class="caption">
+            <b>
+                ГРУЗОВОЙ ТРАНСПОРТ
+                {{#hasPrev}}<a class="pages" href="/trucks?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/trucks?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>Марка</th>
@@ -119,10 +125,6 @@
             </tr>
         {{/trucks}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/trucks?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/trucks?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </div>
 </body>

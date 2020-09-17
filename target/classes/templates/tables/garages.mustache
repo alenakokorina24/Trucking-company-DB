@@ -35,7 +35,13 @@
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>ГАРАЖНЫЕ ХОЗЯЙСТВА</b></caption>
+        <caption class="caption">
+            <b>
+                ГАРАЖНЫЕ ХОЗЯЙСТВА
+                {{#hasPrev}}<a class="pages" href="/garages?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/garages?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID гаража</th>
             <th>ID участка</th>
@@ -59,10 +65,6 @@
             </tr>
         {{/garages}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/garages?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/garages?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </div>
 </body>

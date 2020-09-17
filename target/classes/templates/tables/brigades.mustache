@@ -45,7 +45,13 @@
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>БРИГАДЫ</b></caption>
+        <caption class="caption">
+            <b>
+                БРИГАДЫ
+                {{#hasPrev}}<a class="pages" href="/brigades?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/brigades?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID бригады</th>
             <th>ID участка</th>
@@ -73,10 +79,6 @@
             </tr>
         {{/brigades}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/brigades?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/brigades?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </div>
 </body>

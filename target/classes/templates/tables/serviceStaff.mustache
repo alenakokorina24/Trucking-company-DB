@@ -47,7 +47,13 @@
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>ОБСЛУЖИВАЮЩИЙ ПЕРСОНАЛ</b></caption>
+        <caption class="caption">
+            <b>
+                ОБСЛУЖИВАЮЩИЙ ПЕРСОНАЛ
+                {{#hasPrev}}<a class="pages" href="/serviceStaff?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/serviceStaff?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>ФИО</th>
@@ -75,10 +81,6 @@
             </tr>
         {{/serviceStaff}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/serviceStaff?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/serviceStaff?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </div>
 </body>

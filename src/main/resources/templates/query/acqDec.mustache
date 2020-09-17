@@ -19,7 +19,13 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>ПРИОБРЕТЁННАЯ И СПИСАННАЯ АВТОТЕХНИКА В ПЕРИОД С {{start}} ПО {{end}}</b></caption>
+        <caption class="caption">
+            <b>
+                ПРИОБРЕТЁННАЯ И СПИСАННАЯ АВТОТЕХНИКА В ПЕРИОД С {{start}} ПО {{end}}
+                {{#hasPrev}}<a class="pages" href="/acqDec?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/acqDec?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>Марка</th>
@@ -37,10 +43,6 @@
             </tr>
         {{/transport}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/acqDec?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/acqDec?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </body>
 </html>

@@ -15,6 +15,7 @@ import java.util.*;
 public class NativeQueryController {
     @GetMapping("/nativeQuery")
     public String getData(@RequestParam String queryText,
+                          @RequestParam(value = "page", defaultValue = "1") int pageNumber,
                           Map<String, Object> model) {
         try (Session session = DAO.getSession()) {
             Query query = session.createNativeQuery(queryText, Tuple.class);

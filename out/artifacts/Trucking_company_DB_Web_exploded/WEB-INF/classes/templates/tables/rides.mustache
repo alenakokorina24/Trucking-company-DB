@@ -51,7 +51,13 @@
 </div>
 <div style="float: left; width: 78%;">
     <table>
-        <caption class="caption"><b>ПОЕЗДКИ</b></caption>
+        <caption class="caption">
+            <b>
+                ПОЕЗДКИ
+                {{#hasPrev}}<a class="pages" href="/rides?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/rides?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>Дата</th>
@@ -79,10 +85,6 @@
             </tr>
         {{/rides}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/rides?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/rides?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </div>
 </body>

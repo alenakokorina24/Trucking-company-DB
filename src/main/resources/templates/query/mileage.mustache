@@ -19,7 +19,13 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>ПРОБЕГ {{transportInfo}} ЗА {{date}}</b></caption>
+        <caption class="caption">
+            <b>
+                ПРОБЕГ {{transportInfo}} ЗА {{date}}
+                {{#hasPrev}}<a class="pages" href="/mileage?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/mileage?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>Пробег (км)</th>
@@ -31,10 +37,6 @@
             </tr>
         {{/mileage}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/mileage?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/mileage?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </body>
 </html>

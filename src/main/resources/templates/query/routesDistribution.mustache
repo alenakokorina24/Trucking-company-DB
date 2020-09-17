@@ -19,7 +19,13 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>РАСПРЕДЕЛЕНИЕ ТРАНСПОРТА ПО МАРШРУТАМ</b></caption>
+        <caption class="caption">
+            <b>
+                РАСПРЕДЕЛЕНИЕ ТРАНСПОРТА ПО МАРШРУТАМ
+                {{#hasPrev}}<a class="pages" href="/routesDistribution?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/routesDistribution?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>транспорт</th>
             <th>маршрут</th>
@@ -33,10 +39,6 @@
             </tr>
         {{/routes}}
     </table>
-    <div>
-        {{#hasPrev}}<a class="pages" href="/routesDistribution?page={{prev}}">BACK</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
-        {{#hasNext}}<a class="pages" href="/routesDistribution?page={{next}}">NEXT</a>{{/hasNext}}
-    </div>
 </div>
 </body>
 </html>

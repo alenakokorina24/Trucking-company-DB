@@ -19,7 +19,13 @@
 </div>
 <div>
     <table>
-        <caption class="caption"><b>ИНФОРМАЦИЯ О РЕМОНТАХ ДЛЯ {{transportInfo}}, ЧИСЛО РЕМОНТОВ: {{repairsNum}}</b></caption>
+        <caption class="caption">
+            <b>
+                ИНФОРМАЦИЯ О РЕМОНТАХ ДЛЯ {{transportInfo}}, ЧИСЛО РЕМОНТОВ: {{repairsNum}}
+                {{#hasPrev}}<a class="pages" href="/mileage?page={{prev}}"><</a>&nbsp;&nbsp;&nbsp;{{/hasPrev}}
+                {{#hasNext}}<a class="pages" href="/mileage?page={{next}}">></a>{{/hasNext}}
+            </b>
+        </caption>
         <tr>
             <th>ID</th>
             <th>Стоимость</th>
