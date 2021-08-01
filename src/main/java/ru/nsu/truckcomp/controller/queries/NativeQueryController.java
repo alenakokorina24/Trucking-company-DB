@@ -26,7 +26,6 @@ public class NativeQueryController {
                 values.add(row.toArray());
                 List<TupleElement<?>> elements = row.getElements();
                 for (TupleElement<?> element : elements) {
-                    System.out.println(element);
                     columns.add(element.getAlias());
                 }
             }

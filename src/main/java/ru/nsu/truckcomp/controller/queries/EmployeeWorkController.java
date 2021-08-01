@@ -32,7 +32,7 @@ public class EmployeeWorkController {
                               @RequestParam Date end,
                               @RequestParam(value = "page", defaultValue = "1") int pageNumber,
                               Map<String, Object> model) {
-        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("empId").ascending());
+        Pageable sorted = PageRequest.of(pageNumber - 1, ROWS_PER_PAGE, Sort.by("repId").ascending());
         List<RepairList> work;
         if (transport == null) {
             work = repairListRepository.getWork(employee, start, end, sorted);

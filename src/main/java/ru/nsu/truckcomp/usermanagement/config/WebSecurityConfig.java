@@ -29,7 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/registerAccount").not().fullyAuthenticated()
                     .antMatchers("/register").not().fullyAuthenticated()
-                    .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/", "/resources/**").permitAll()
                 // все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
