@@ -1,8 +1,6 @@
 # Trucking-company-DB
 
-I accomplished this application as a school project at the university during the database course. 
-
-This is a web-client for interacting with Database Management System, it was developed using Spring Framework and Hibernate, the "web-part" was implemented with HTML5, CSS and Mustache. DBMS that was used is PostgreSQL.
+This is a web client for interacting with Database Management System, it was developed using Spring Framework and Hibernate, the web part was implemented with HTML5, CSS and Mustache. DBMS that was used is PostgreSQL.
 
 **Functionality**
 
